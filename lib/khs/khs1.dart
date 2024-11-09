@@ -1179,7 +1179,11 @@ class _khs1State extends State<khs1> {
           color: whitecolor,
           child: GestureDetector(
             onTap: () {
-              print("sukses");
+              showDialog(
+                  context: context,
+                  builder: (BuildContext) {
+                    return Alert();
+                  });
             },
             child: Center(
               child: Container(
@@ -1224,6 +1228,58 @@ class _khs1State extends State<khs1> {
           ),
         ),
       ),
+    );
+  }
+}
+
+class Alert extends StatefulWidget {
+  const Alert({super.key});
+
+  @override
+  State<Alert> createState() => _AlertState();
+}
+
+class _AlertState extends State<Alert> {
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: Center(
+        child: Text(
+          "Kartu Hasil Studi",
+          style: TextStyle(
+            fontFamily: 'Poppinsmedium', // Font style
+            fontSize: 20, // Ukuran font
+            fontWeight: FontWeight.bold, // Menebalkan teks
+            color: Color(0x50000000), // Warna teks
+          ),
+        ),
+      ),
+      content: Icon(
+        Icons.cloud_done_rounded,
+        size: 71,
+        color: Color(0xff4D4C50),
+      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      actions: [
+        TextButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: Container(
+                width: double.infinity,
+                height: 48,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5),
+                    color: Color(0xff1400FF)),
+                child: Center(
+                    child: Text(
+                  "Oke",
+                  style: TextStyle(
+                      fontFamily: 'Poppinsmedium',
+                      fontSize: 14,
+                      color: whitecolor),
+                ))))
+      ],
     );
   }
 }
