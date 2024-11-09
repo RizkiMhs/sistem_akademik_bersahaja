@@ -17,7 +17,7 @@ class _PesanState extends State<Pesan> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-          preferredSize: Size.fromHeight(130),
+          preferredSize: Size.fromHeight(90),
           child: ClipRRect(
             borderRadius: BorderRadius.vertical(bottom: Radius.circular(15)),
             child: AppBar(
@@ -35,7 +35,7 @@ class _PesanState extends State<Pesan> {
                           color: whitecolor),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(top: 4),
+                      padding: EdgeInsets.only(top: 0),
                       child: Text(
                         "Universitas Malikussaleh",
                         style: TextStyle(

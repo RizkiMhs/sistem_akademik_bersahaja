@@ -16,7 +16,7 @@ class _datadiriState extends State<datadiri> {
     return Scaffold(
       backgroundColor: bgcolor,
       appBar: PreferredSize(
-          preferredSize: Size.fromHeight(130),
+          preferredSize: Size.fromHeight(90),
           child: ClipRRect(
             borderRadius: BorderRadius.vertical(bottom: Radius.circular(15)),
             child: AppBar(

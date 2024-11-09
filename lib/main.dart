@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/bahan%20kuliah/bahankuliah.dart';
 import 'package:flutter_application_1/bahan%20kuliah/detailbahan.dart';
 import 'package:flutter_application_1/views/homepage.dart';
+import 'package:flutter_application_1/views/tes.dart';
 
 void main() {
   runApp(const MyApp());

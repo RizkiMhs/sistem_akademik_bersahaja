@@ -171,7 +171,7 @@ class _HomepageState extends State<Homepage> {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      Navigator.of(context).push(MaterialPageRoute(
                           builder: (BuildContext) => const jadwalkuliah()));
                     },
                     child: Container(
@@ -215,7 +215,7 @@ class _HomepageState extends State<Homepage> {
                   SizedBox(width: 15),
                   GestureDetector(
                     onTap: () {
-                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      Navigator.of(context).push(MaterialPageRoute(
                           builder: (BuildContext) => const bahankuliah()));
                     },
                     child: Container(
@@ -256,7 +256,7 @@ class _HomepageState extends State<Homepage> {
                   SizedBox(width: 15),
                   GestureDetector(
                     //  onTap: () {
-                    //   Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    //   Navigator.of(context).push(MaterialPageRoute(
                     //       builder: (BuildContext) => const ()));
                     // },
                     child: Container(
@@ -297,7 +297,7 @@ class _HomepageState extends State<Homepage> {
                   SizedBox(width: 15),
                   GestureDetector(
                     onTap: () {
-                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      Navigator.of(context).push(MaterialPageRoute(
                           builder: (BuildContext) => const informasi()));
                     },
                     child: Container(
@@ -338,7 +338,7 @@ class _HomepageState extends State<Homepage> {
                   SizedBox(width: 15),
                   GestureDetector(
                     //  onTap: () {
-                    //   Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    //   Navigator.of(context).push(MaterialPageRoute(
                     //       builder: (BuildContext) => const ()));
                     // },
                     child: Container(
@@ -379,7 +379,7 @@ class _HomepageState extends State<Homepage> {
                   SizedBox(width: 15),
                   GestureDetector(
                     onTap: () {
-                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      Navigator.of(context).push(MaterialPageRoute(
                           builder: (BuildContext) => const InfoKhs()));
                     },
                     child: Container(
@@ -420,7 +420,7 @@ class _HomepageState extends State<Homepage> {
                   SizedBox(width: 15),
                   GestureDetector(
                     //  onTap: () {
-                    //   Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    //   Navigator.of(context).push(MaterialPageRoute(
                     //       builder: (BuildContext) => const ()));
                     // },
                     child: Container(
@@ -461,7 +461,7 @@ class _HomepageState extends State<Homepage> {
                   SizedBox(width: 15),
                   GestureDetector(
                     //  onTap: () {
-                    //   Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    //   Navigator.of(context).push(MaterialPageRoute(
                     //       builder: (BuildContext) => const ()));
                     // },
                     child: Container(
@@ -568,7 +568,7 @@ class _HomepageState extends State<Homepage> {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      Navigator.of(context).push(MaterialPageRoute(
                           builder: (BuildContext) => const pengumuman()));
                     },
                     child: Container(
@@ -676,7 +676,7 @@ class _HomepageState extends State<Homepage> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      Navigator.of(context).push(MaterialPageRoute(
                           builder: (BuildContext) => const pengumuman()));
                     },
                     child: Container(
@@ -784,7 +784,7 @@ class _HomepageState extends State<Homepage> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      Navigator.of(context).push(MaterialPageRoute(
                           builder: (BuildContext) => const pengumuman()));
                     },
                     child: Container(
@@ -892,7 +892,7 @@ class _HomepageState extends State<Homepage> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      Navigator.of(context).push(MaterialPageRoute(
                           builder: (BuildContext) => const pengumuman()));
                     },
                     child: Container(
@@ -1000,7 +1000,7 @@ class _HomepageState extends State<Homepage> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      Navigator.of(context).push(MaterialPageRoute(
                           builder: (BuildContext) => const pengumuman()));
                     },
                     child: Container(
@@ -1108,7 +1108,7 @@ class _HomepageState extends State<Homepage> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      Navigator.of(context).push(MaterialPageRoute(
                           builder: (BuildContext) => const pengumuman()));
                     },
                     child: Container(
@@ -1227,7 +1227,7 @@ class _HomepageState extends State<Homepage> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    Navigator.of(context).push(MaterialPageRoute(
                         builder: (BuildContext) => const Pesan()));
                   },
                   child: Container(
@@ -1239,7 +1239,7 @@ class _HomepageState extends State<Homepage> {
                 // ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    Navigator.of(context).push(MaterialPageRoute(
                         builder: (BuildContext) => const Homepage()));
                   },
                   child: Container(
@@ -1257,7 +1257,7 @@ class _HomepageState extends State<Homepage> {
                 // ),
                 GestureDetector(
                     onTap: () {
-                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      Navigator.of(context).push(MaterialPageRoute(
                           builder: (BuildContext) => const infoakun()));
                     },
                     child: Container(
@@ -1276,7 +1276,7 @@ class _HomepageState extends State<Homepage> {
         //       children: <Widget>[
         //         GestureDetector(
         //           onTap: () {
-        //             // Navigator.of(context).pushReplacement(MaterialPageRoute(
+        //             // Navigator.of(context).push(MaterialPageRoute(
         //             //     builder: (BuildContext) => const Pesan()));
         //           },
         //           child: Container(
