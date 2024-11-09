@@ -1232,6 +1232,9 @@ class _khs1State extends State<khs1> {
   }
 }
 
+
+
+// untuk membuat alert dialog
 class Alert extends StatefulWidget {
   const Alert({super.key});
 
@@ -1245,7 +1248,7 @@ class _AlertState extends State<Alert> {
     return AlertDialog(
       title: Center(
         child: Text(
-          "Kartu Hasil Studi",
+          "File Berhasil Disimpan",
           style: TextStyle(
             fontFamily: 'Poppinsmedium', // Font style
             fontSize: 20, // Ukuran font
