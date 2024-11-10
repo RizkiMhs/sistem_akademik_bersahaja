@@ -26,8 +26,7 @@ class _pengumumanState extends State<pengumuman> {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (BuildContext) => const Homepage()));
+                  Navigator.of(context).pop();
                 },
                 child: Row(
                   children: [

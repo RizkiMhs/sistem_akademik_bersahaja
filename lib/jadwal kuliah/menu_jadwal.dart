@@ -29,6 +29,7 @@ class _jadwalkuliahState extends State<jadwalkuliah> {
               borderRadius: BorderRadius.vertical(bottom: Radius.circular(15)),
               child: AppBar(
                 backgroundColor: greencolor,
+                automaticallyImplyLeading: false,
                 flexibleSpace: Padding(
                   padding: EdgeInsets.only(top: 60),
                   child: Column(
@@ -60,8 +61,7 @@ class _jadwalkuliahState extends State<jadwalkuliah> {
                   padding: EdgeInsets.only(left: 20, top: 12),
                   child: GestureDetector(
                     onTap: () {
-                      Navigator.of(context).pushReplacement(MaterialPageRoute(
-                          builder: (BuildContext) => const Homepage()));
+                      Navigator.of(context).pop();
                     },
                     child: Text(
                       "< Kembali",

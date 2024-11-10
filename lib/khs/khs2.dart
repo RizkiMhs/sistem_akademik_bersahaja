@@ -83,8 +83,7 @@ class _khs2State extends State<Khs2> {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Navigator.of(context).pushReplacement(MaterialPageRoute(
-                          builder: (BuildContext) => const InfoKhs()));
+                      Navigator.of(context).pop();
                     },
                     child: Padding(
                       padding: const EdgeInsets.only(top: 15, left: 23),
@@ -1179,7 +1178,11 @@ class _khs2State extends State<Khs2> {
           color: whitecolor,
           child: GestureDetector(
             onTap: () {
-              print("sukses");
+              showDialog(
+                  context: context,
+                  builder: (BuildContext) {
+                    return Alert();
+                  });
             },
             child: Center(
               child: Container(
@@ -1187,7 +1190,8 @@ class _khs2State extends State<Khs2> {
                 height: 48,
                 margin: EdgeInsets.symmetric(horizontal: 20),
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10), color: orangecolor),
+                    borderRadius: BorderRadius.circular(10),
+                    color: orangecolor),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -1223,6 +1227,59 @@ class _khs2State extends State<Khs2> {
           ),
         ),
       ),
+    );
+  }
+}
+
+// untuk membuat alert dialog
+class Alert extends StatefulWidget {
+  const Alert({super.key});
+
+  @override
+  State<Alert> createState() => _AlertState();
+}
+
+class _AlertState extends State<Alert> {
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: Center(
+        child: Text(
+          "File Berhasil Disimpan",
+          style: TextStyle(
+            fontFamily: 'Poppinsmedium', // Font style
+            fontSize: 20, // Ukuran font
+            fontWeight: FontWeight.bold, // Menebalkan teks
+            color: Color(0x50000000), // Warna teks
+          ),
+        ),
+      ),
+      content: Icon(
+        Icons.cloud_done_rounded,
+        size: 71,
+        color: Color(0xff4D4C50),
+      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      actions: [
+        TextButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: Container(
+                width: double.infinity,
+                height: 48,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5),
+                    color: Color(0xff1400FF)),
+                child: Center(
+                    child: Text(
+                  "Oke",
+                  style: TextStyle(
+                      fontFamily: 'Poppinsmedium',
+                      fontSize: 14,
+                      color: whitecolor),
+                ))))
+      ],
     );
   }
 }

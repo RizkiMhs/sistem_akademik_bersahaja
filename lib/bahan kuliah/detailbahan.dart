@@ -58,8 +58,7 @@ class _detailbahanState extends State<detailbahan> {
                 padding: const EdgeInsets.only(left: 15, top: 20),
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (BuildContext) => const bahankuliah()));
+                    Navigator.of(context).pop();
                   },
                   child: Text(
                     '< Kembali',

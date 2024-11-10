@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/bahan%20kuliah/bahankuliah.dart';
 import 'package:flutter_application_1/bahan%20kuliah/detailbahan.dart';
+import 'package:flutter_application_1/infoakun/infoakun.dart';
+import 'package:flutter_application_1/khs/info_khs.dart';
 import 'package:flutter_application_1/khs/khs1.dart';
 import 'package:flutter_application_1/views/homepage.dart';
 import 'package:flutter_application_1/views/tes.dart';
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const khs1(),
+      home: const Homepage(),
     );
   }
 }

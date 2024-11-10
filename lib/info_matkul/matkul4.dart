@@ -88,10 +88,7 @@ class _Matkul4State extends State<Matkul4> {
                       padding: EdgeInsets.only(left: 20, top: 12),
                       child: GestureDetector(
                         onTap: () {
-                          Navigator.of(context).pushReplacement(
-                              MaterialPageRoute(
-                                  builder: (BuildContext) =>
-                                      const informasi()));
+                          Navigator.of(context).pop();
                         },
                         child: Text(
                           "< Kembali",

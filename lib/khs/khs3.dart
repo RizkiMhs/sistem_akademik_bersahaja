@@ -83,8 +83,7 @@ class _khs3State extends State<Khs3> {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Navigator.of(context).pushReplacement(MaterialPageRoute(
-                          builder: (BuildContext) => const InfoKhs()));
+                      Navigator.of(context).pop();
                     },
                     child: Padding(
                       padding: const EdgeInsets.only(top: 15, left: 23),

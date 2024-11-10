@@ -61,8 +61,7 @@ class _bahankuliahState extends State<bahankuliah> {
                   padding: const EdgeInsets.only(left: 15, top: 20),
                   child: GestureDetector(
                     onTap: () {
-                      Navigator.of(context).pushReplacement(MaterialPageRoute(
-                          builder: (BuildContext) => const Homepage()));
+                      Navigator.of(context).pop();
                     },
                     child: Text(
                       '< Kembali',

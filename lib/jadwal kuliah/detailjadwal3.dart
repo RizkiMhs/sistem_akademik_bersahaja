@@ -21,9 +21,11 @@ class _detailjadwal3State extends State<detailjadwal3> {
           appBar: PreferredSize(
               preferredSize: Size.fromHeight(90),
               child: ClipRRect(
-                borderRadius: BorderRadius.vertical(bottom: Radius.circular(15)),
+                borderRadius:
+                    BorderRadius.vertical(bottom: Radius.circular(15)),
                 child: AppBar(
                   backgroundColor: greencolor,
+                  automaticallyImplyLeading: false,
                   flexibleSpace: Padding(
                     padding: EdgeInsets.only(top: 60),
                     child: Column(
@@ -50,8 +52,7 @@ class _detailjadwal3State extends State<detailjadwal3> {
           body: Column(children: [
             GestureDetector(
               onTap: () {
-                Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (BuildContext) => const jadwalkuliah()));
+                Navigator.of(context).pop();
               },
               child: Row(
                 children: [

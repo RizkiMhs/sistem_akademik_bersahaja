@@ -18,14 +18,14 @@ class _infoakunState extends State<infoakun> {
     return Scaffold(
       backgroundColor: bgcolor,
       appBar: PreferredSize(
-          preferredSize: Size.fromHeight(90),
+          preferredSize: Size.fromHeight(80),
           child: ClipRRect(
             borderRadius: BorderRadius.vertical(bottom: Radius.circular(15)),
             child: AppBar(
               backgroundColor: greencolor,
               automaticallyImplyLeading: false,
               flexibleSpace: Padding(
-                padding: EdgeInsets.only(top: 60),
+                padding: EdgeInsets.only(top: 50),
                 child: Column(
                   children: [
                     Text(
@@ -139,7 +139,7 @@ class _infoakunState extends State<infoakun> {
           ),
           GestureDetector(
             onTap: () {
-              Navigator.of(context).pushReplacement(MaterialPageRoute(
+              Navigator.of(context).push(MaterialPageRoute(
                   builder: (BuildContext) => const datadiri()));
             },
             child: Container(
@@ -188,7 +188,7 @@ class _infoakunState extends State<infoakun> {
           ),
           GestureDetector(
             onTap: () {
-              Navigator.of(context).pushReplacement(MaterialPageRoute(
+              Navigator.of(context).push(MaterialPageRoute(
                   builder: (BuildContext) => const ubahsandi()));
             },
             child: Container(

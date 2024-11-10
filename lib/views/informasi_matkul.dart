@@ -102,10 +102,7 @@ class _informasiState extends State<informasi> {
                         padding: const EdgeInsets.only(left: 20, top: 12),
                         child: GestureDetector(
                           onTap: () {
-                            Navigator.of(context).pushReplacement(
-                                MaterialPageRoute(
-                                    builder: (BuildContext) =>
-                                        const Homepage()));
+                            Navigator.of(context).pop();
                           },
                           child: Text(
                             "< Kembali",

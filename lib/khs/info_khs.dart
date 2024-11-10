@@ -76,8 +76,7 @@ class _InfoKhsState extends State<InfoKhs> {
                         const EdgeInsets.only(left: 20, top: 12, bottom: 19),
                     child: GestureDetector(
                       onTap: () {
-                        Navigator.of(context).pushReplacement(MaterialPageRoute(
-                            builder: (BuildContext) => const Homepage()));
+                        Navigator.of(context).pop();
                       },
                       child: Text(
                         "< Kembali",
