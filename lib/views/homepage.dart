@@ -4,6 +4,10 @@ import 'package:flutter_application_1/info/pesan.dart';
 import 'package:flutter_application_1/infoakun/infoakun.dart';
 import 'package:flutter_application_1/jadwal%20kuliah/menu_jadwal.dart';
 import 'package:flutter_application_1/khs/info_khs.dart';
+import 'package:flutter_application_1/krs/krs.dart';
+import 'package:flutter_application_1/saran/saran.dart';
+import 'package:flutter_application_1/tagihan/tagihan.dart';
+import 'package:flutter_application_1/trNilai/transkipnilai.dart';
 import 'package:flutter_application_1/views/detail_pmn.dart';
 import 'package:flutter_application_1/views/informasi_matkul.dart';
 
@@ -255,10 +259,10 @@ class _HomepageState extends State<Homepage> {
                   ),
                   SizedBox(width: 15),
                   GestureDetector(
-                    //  onTap: () {
-                    //   Navigator.of(context).push(MaterialPageRoute(
-                    //       builder: (BuildContext) => const ()));
-                    // },
+                     onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (BuildContext) => const Transkipnilai()));
+                    },
                     child: Container(
                       width: 100,
                       height: 122,
@@ -337,10 +341,10 @@ class _HomepageState extends State<Homepage> {
                   ),
                   SizedBox(width: 15),
                   GestureDetector(
-                    //  onTap: () {
-                    //   Navigator.of(context).push(MaterialPageRoute(
-                    //       builder: (BuildContext) => const ()));
-                    // },
+                     onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (BuildContext) => const KrsMenu()));
+                    },
                     child: Container(
                       width: 100,
                       height: 122,
@@ -419,10 +423,10 @@ class _HomepageState extends State<Homepage> {
                   ),
                   SizedBox(width: 15),
                   GestureDetector(
-                    //  onTap: () {
-                    //   Navigator.of(context).push(MaterialPageRoute(
-                    //       builder: (BuildContext) => const ()));
-                    // },
+                     onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (BuildContext) => const Saran()));
+                    },
                     child: Container(
                       width: 100,
                       height: 122,
@@ -460,10 +464,10 @@ class _HomepageState extends State<Homepage> {
                   ),
                   SizedBox(width: 15),
                   GestureDetector(
-                    //  onTap: () {
-                    //   Navigator.of(context).push(MaterialPageRoute(
-                    //       builder: (BuildContext) => const ()));
-                    // },
+                     onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (BuildContext) => const Tagihan ()));
+                    },
                     child: Container(
                       width: 100,
                       height: 122,
