@@ -50,36 +50,6 @@ class _datadiriState extends State<datadiri> {
                 ),
               ),
             )),
-        bottomSheet: GestureDetector(
-          onTap: () {
-            Navigator.of(context).push(
-                MaterialPageRoute(builder: (BuildContext) => const EditAkun()));
-          },
-          child: Container(
-            width: double.infinity,
-            height: 53,
-            margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 23),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: orangecolor,
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.black.withOpacity(0.5),
-                      spreadRadius: 0,
-                      blurRadius: 4,
-                      offset: Offset(4, 4))
-                ]),
-            child: Center(
-              child: Text(
-                "Edit Data Diri",
-                style: TextStyle(
-                    fontFamily: 'Poppinssemibold',
-                    fontSize: 25,
-                    color: whitecolor),
-              ),
-            ),
-          ),
-        ),
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -407,12 +377,42 @@ class _datadiriState extends State<datadiri> {
                       ),
                     ),
                     SizedBox(
-                      height: 5,
+                      height: 50,
                     ),
                   ],
                 ),
               ),
             ],
+          ),
+        ),
+        bottomNavigationBar: BottomAppBar(
+          color: Colors.white.withOpacity(0.30),
+          child: GestureDetector(
+            onTap: () {
+              // Aksi untuk menyimpan data
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => EditAkun()));
+            },
+            child: Center(
+              child: Container(
+                width: double.infinity,
+                height: 65,
+                margin: const EdgeInsets.symmetric(horizontal: 10),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: orangecolor,
+                ),
+                child: Center(
+                  child: Text(
+                    "Edit Data",
+                    style: TextStyle(
+                        fontFamily: 'Poppinssemibold',
+                        fontSize: 25,
+                        color: whitecolor),
+                  ),
+                ),
+              ),
+            ),
           ),
         ),
       ),

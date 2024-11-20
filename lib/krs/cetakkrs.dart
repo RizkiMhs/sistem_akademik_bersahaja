@@ -15,649 +15,651 @@ class Cetakkrs extends StatelessWidget {
         return false;
       },
       child: Scaffold(
-        body: Column(
-          children: [
-            Container(
-              width: double.infinity,
-              padding: EdgeInsets.only(top: 80, bottom: 10),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(20),
-                    bottomRight: Radius.circular(20)),
-                color: const Color(0xff00712D),
-              ),
-              child: Column(
-                children: [
-                  Text(
-                    'Kartu Rencana Studi',
-                    style: TextStyle(
-                      fontFamily: 'Poppinsbold',
-                      fontSize: 25,
-                      color: Colors.white,
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              Container(
+                width: double.infinity,
+                padding: EdgeInsets.only(top: 80, bottom: 10),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(20),
+                      bottomRight: Radius.circular(20)),
+                  color: const Color(0xff00712D),
+                ),
+                child: Column(
+                  children: [
+                    Text(
+                      'Kartu Rencana Studi',
+                      style: TextStyle(
+                        fontFamily: 'Poppinsbold',
+                        fontSize: 25,
+                        color: Colors.white,
+                      ),
                     ),
-                  ),
-                  Text(
-                    'Pilih Matakuliah',
-                    style: TextStyle(
-                      fontFamily: 'Poppinsregular',
-                      fontSize: 14,
-                      color: Colors.white,
+                    Text(
+                      'Pilih Matakuliah',
+                      style: TextStyle(
+                        fontFamily: 'Poppinsregular',
+                        fontSize: 14,
+                        color: Colors.white,
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20, top: 12),
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: Text(
+                        '<Kembali',
+                        style: TextStyle(
+                          fontFamily: 'Poppinsbold',
+                          fontSize: 25,
+                          color: Colors.red,
+                        ),
+                      ),
                     ),
                   )
                 ],
               ),
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 20, top: 12),
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pop();
-                    },
-                    child: Text(
-                      '<Kembali',
-                      style: TextStyle(
-                        fontFamily: 'Poppinsbold',
-                        fontSize: 25,
-                        color: Colors.red,
-                      ),
-                    ),
-                  ),
-                )
-              ],
-            ),
-            SizedBox(
-              height: 21,
-            ),
-            Container(
-              width: double.infinity,
-              height: 69,
-              margin: EdgeInsets.symmetric(horizontal: 20),
-              decoration: BoxDecoration(
-                  color: Color(0x2000712D),
-                  borderRadius: BorderRadius.circular(5),
-                  border: Border.all(
-                    color: Color(0xff00712D),
-                    width: 2,
-                  )),
-              child: Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: Container(
-                      width: 2,
-                      height: 45,
-                      color: Color(0xff00712D),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 5),
-                      child: Container(
-                        child: Expanded(
-                            child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "TEKNOLOGI INFORMASI DAN KEWIRAUSAHAAN",
-                              style: TextStyle(
-                                fontFamily: 'Poppinsbold',
-                                fontSize: 12,
-                              ),
-                            ),
-                            SizedBox(
-                              height: 9,
-                            ),
-                            Text(
-                              "DARING 6",
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontFamily: 'Poppinsmedium',
-                              ),
-                            )
-                          ],
-                        )),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                      child: Padding(
-                    padding: const EdgeInsets.only(
-                      right: 5,
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Text(
-                          "selasa",
-                          style: TextStyle(
-                            fontSize: 10,
-                            fontFamily: 'Poppinsregular',
-                          ),
-                        ),
-                        Text(
-                          "10:31-12:11",
-                          style: TextStyle(
-                            fontSize: 10,
-                            fontFamily: 'Poppinsregular',
-                          ),
-                        ),
-                      ],
-                    ),
-                  ))
-                ],
+              SizedBox(
+                height: 21,
               ),
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Container(
-              width: double.infinity,
-              height: 69,
-              margin: EdgeInsets.symmetric(horizontal: 20),
-              decoration: BoxDecoration(
-                  color: Color(0x20FF9100),
-                  borderRadius: BorderRadius.circular(5),
-                  border: Border.all(
-                    color: Color(0xffFF9100),
-                    width: 2,
-                  )),
-              child: Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: Container(
-                      width: 2,
-                      height: 45,
+              Container(
+                width: double.infinity,
+                height: 69,
+                margin: EdgeInsets.symmetric(horizontal: 20),
+                decoration: BoxDecoration(
+                    color: Color(0x2000712D),
+                    borderRadius: BorderRadius.circular(5),
+                    border: Border.all(
                       color: Color(0xff00712D),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 5),
+                      width: 2,
+                    )),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10),
                       child: Container(
-                        child: Expanded(
-                            child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "STATISTIKA DAN PROBABILITAS",
-                              style: TextStyle(
-                                fontFamily: 'Poppinsbold',
-                                fontSize: 12,
-                              ),
-                            ),
-                            SizedBox(
-                              height: 9,
-                            ),
-                            Text(
-                              "LAB 1 SISTEM INFORMASI",
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontFamily: 'Poppinsmedium',
-                              ),
-                            )
-                          ],
-                        )),
+                        width: 2,
+                        height: 45,
+                        color: Color(0xff00712D),
                       ),
                     ),
-                  ),
-                  Expanded(
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10),
                       child: Padding(
-                    padding: const EdgeInsets.only(
-                      right: 5,
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Text(
-                          "selasa",
-                          style: TextStyle(
-                            fontSize: 10,
-                            fontFamily: 'Poppinsregular',
-                          ),
-                        ),
-                        Text(
-                          "10:31-12:11",
-                          style: TextStyle(
-                            fontSize: 10,
-                            fontFamily: 'Poppinsregular',
-                          ),
-                        ),
-                      ],
-                    ),
-                  ))
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 21,
-            ),
-            Container(
-              width: double.infinity,
-              height: 69,
-              margin: EdgeInsets.symmetric(horizontal: 20),
-              decoration: BoxDecoration(
-                  color: Color(0x2000712D),
-                  border: Border.all(
-                    color: Color(0xff00712D),
-                    width: 2,
-                  )),
-              child: Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: Container(
-                      width: 2,
-                      height: 45,
-                      color: Color(0xff00712D),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 5),
-                      child: Container(
-                        child: Expanded(
-                            child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "TEKNOLOGI INFORMASI DAN KEWIRAUSAHAAN",
-                              style: TextStyle(
-                                fontFamily: 'Poppinsbold',
-                                fontSize: 12,
+                        padding: const EdgeInsets.symmetric(vertical: 5),
+                        child: Container(
+                          child: Expanded(
+                              child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "TEKNOLOGI INFORMASI",
+                                style: TextStyle(
+                                  fontFamily: 'Poppinsbold',
+                                  fontSize: 12,
+                                ),
                               ),
-                            ),
-                            SizedBox(
-                              height: 9,
-                            ),
-                            Text(
-                              "DARING 6",
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontFamily: 'Poppinsmedium',
+                              SizedBox(
+                                height: 9,
                               ),
-                            )
-                          ],
-                        )),
+                              Text(
+                                "DARING 6",
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontFamily: 'Poppinsmedium',
+                                ),
+                              )
+                            ],
+                          )),
+                        ),
                       ),
                     ),
-                  ),
-                  Expanded(
-                      child: Padding(
-                    padding: const EdgeInsets.only(
-                      right: 5,
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Text(
-                          "selasa",
-                          style: TextStyle(
-                            fontSize: 10,
-                            fontFamily: 'Poppinsregular',
+                    Expanded(
+                        child: Padding(
+                      padding: const EdgeInsets.only(
+                        right: 5,
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text(
+                            "selasa",
+                            style: TextStyle(
+                              fontSize: 10,
+                              fontFamily: 'Poppinsregular',
+                            ),
                           ),
-                        ),
-                        Text(
-                          "10:31-12:11",
-                          style: TextStyle(
-                            fontSize: 10,
-                            fontFamily: 'Poppinsregular',
+                          Text(
+                            "10:31-12:11",
+                            style: TextStyle(
+                              fontSize: 10,
+                              fontFamily: 'Poppinsregular',
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                  ))
-                ],
+                        ],
+                      ),
+                    ))
+                  ],
+                ),
               ),
-            ),
-            SizedBox(
-              height: 21,
-            ),
-            Container(
-              width: double.infinity,
-              height: 69,
-              margin: EdgeInsets.symmetric(horizontal: 20),
-              decoration: BoxDecoration(
-                  color: Color(0x20FF9100),
-                  border: Border.all(
-                    color: Color(0xffFF9100),
-                    width: 2,
-                  )),
-              child: Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: Container(
+              SizedBox(
+                height: 15,
+              ),
+              Container(
+                width: double.infinity,
+                height: 69,
+                margin: EdgeInsets.symmetric(horizontal: 20),
+                decoration: BoxDecoration(
+                    color: Color(0x20FF9100),
+                    borderRadius: BorderRadius.circular(5),
+                    border: Border.all(
+                      color: Color(0xffFF9100),
                       width: 2,
-                      height: 45,
-                      color: Color(0xff00712D),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 5),
+                    )),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10),
                       child: Container(
-                        child: Expanded(
-                            child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "TEKNOLOGI INFORMASI DAN KEWIRAUSAHAAN",
-                              style: TextStyle(
-                                fontFamily: 'Poppinsbold',
-                                fontSize: 12,
-                              ),
-                            ),
-                            SizedBox(
-                              height: 9,
-                            ),
-                            Text(
-                              "DARING 6",
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontFamily: 'Poppinsmedium',
-                              ),
-                            )
-                          ],
-                        )),
+                        width: 2,
+                        height: 45,
+                        color: Color(0xff00712D),
                       ),
                     ),
-                  ),
-                  Expanded(
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10),
                       child: Padding(
-                    padding: const EdgeInsets.only(
-                      right: 5,
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Text(
-                          "selasa",
-                          style: TextStyle(
-                            fontSize: 10,
-                            fontFamily: 'Poppinsregular',
-                          ),
-                        ),
-                        Text(
-                          "10:31-12:11",
-                          style: TextStyle(
-                            fontSize: 10,
-                            fontFamily: 'Poppinsregular',
-                          ),
-                        ),
-                      ],
-                    ),
-                  ))
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 21,
-            ),
-            Container(
-              width: double.infinity,
-              height: 69,
-              margin: EdgeInsets.symmetric(horizontal: 20),
-              decoration: BoxDecoration(
-                  color: Color(0x2000712D),
-                  border: Border.all(
-                    color: Color(0xff00712D),
-                    width: 2,
-                  )),
-              child: Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: Container(
-                      width: 2,
-                      height: 45,
-                      color: Color(0xff00712D),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 5),
-                      child: Container(
-                        child: Expanded(
-                            child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "TEKNOLOGI INFORMASI DAN KEWIRAUSAHAAN",
-                              style: TextStyle(
-                                fontFamily: 'Poppinsbold',
-                                fontSize: 12,
+                        padding: const EdgeInsets.symmetric(vertical: 5),
+                        child: Container(
+                          child: Expanded(
+                              child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "STATISTIKA DAN PROBABILITAS",
+                                style: TextStyle(
+                                  fontFamily: 'Poppinsbold',
+                                  fontSize: 12,
+                                ),
                               ),
-                            ),
-                            SizedBox(
-                              height: 9,
-                            ),
-                            Text(
-                              "DARING 6",
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontFamily: 'Poppinsmedium',
+                              SizedBox(
+                                height: 9,
                               ),
-                            )
-                          ],
-                        )),
+                              Text(
+                                "LAB 1 SISTEM INFORMASI",
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontFamily: 'Poppinsmedium',
+                                ),
+                              )
+                            ],
+                          )),
+                        ),
                       ),
                     ),
-                  ),
-                  Expanded(
-                      child: Padding(
-                    padding: const EdgeInsets.only(
-                      right: 5,
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Text(
-                          "selasa",
-                          style: TextStyle(
-                            fontSize: 10,
-                            fontFamily: 'Poppinsregular',
+                    Expanded(
+                        child: Padding(
+                      padding: const EdgeInsets.only(
+                        right: 5,
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text(
+                            "selasa",
+                            style: TextStyle(
+                              fontSize: 10,
+                              fontFamily: 'Poppinsregular',
+                            ),
                           ),
-                        ),
-                        Text(
-                          "10:31-12:11",
-                          style: TextStyle(
-                            fontSize: 10,
-                            fontFamily: 'Poppinsregular',
+                          Text(
+                            "10:31-12:11",
+                            style: TextStyle(
+                              fontSize: 10,
+                              fontFamily: 'Poppinsregular',
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                  ))
-                ],
+                        ],
+                      ),
+                    ))
+                  ],
+                ),
               ),
-            ),
-            SizedBox(
-              height: 21,
-            ),
-            Container(
-              width: double.infinity,
-              height: 69,
-              margin: EdgeInsets.symmetric(horizontal: 20),
-              decoration: BoxDecoration(
-                  color: Color(0x20FF9100),
-                  border: Border.all(
-                    color: Color(0xffFF9100),
-                    width: 2,
-                  )),
-              child: Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: Container(
-                      width: 2,
-                      height: 45,
+              SizedBox(
+                height: 21,
+              ),
+              Container(
+                width: double.infinity,
+                height: 69,
+                margin: EdgeInsets.symmetric(horizontal: 20),
+                decoration: BoxDecoration(
+                    color: Color(0x2000712D),
+                    border: Border.all(
                       color: Color(0xff00712D),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 5),
+                      width: 2,
+                    )),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10),
                       child: Container(
-                        child: Expanded(
-                            child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "TEKNOLOGI INFORMASI DAN KEWIRAUSAHAAN",
-                              style: TextStyle(
-                                fontFamily: 'Poppinsbold',
-                                fontSize: 12,
-                              ),
-                            ),
-                            SizedBox(
-                              height: 9,
-                            ),
-                            Text(
-                              "DARING 6",
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontFamily: 'Poppinsmedium',
-                              ),
-                            )
-                          ],
-                        )),
+                        width: 2,
+                        height: 45,
+                        color: Color(0xff00712D),
                       ),
                     ),
-                  ),
-                  Expanded(
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10),
                       child: Padding(
-                    padding: const EdgeInsets.only(
-                      right: 5,
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Text(
-                          "selasa",
-                          style: TextStyle(
-                            fontSize: 10,
-                            fontFamily: 'Poppinsregular',
-                          ),
-                        ),
-                        Text(
-                          "10:31-12:11",
-                          style: TextStyle(
-                            fontSize: 10,
-                            fontFamily: 'Poppinsregular',
-                          ),
-                        ),
-                      ],
-                    ),
-                  ))
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 21,
-            ),
-            Container(
-              height: 69,
-              width: double.infinity,
-              margin: EdgeInsets.symmetric(horizontal: 20),
-              decoration: BoxDecoration(
-                  color: Color(0x2000712D),
-                  border: Border.all(
-                    color: Color(0xff00712D),
-                    width: 2,
-                  )),
-              child: Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: Container(
-                      width: 2,
-                      height: 45,
-                      color: Color(0xff00712D),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 5),
-                      child: Container(
-                        child: Expanded(
-                            child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "TEKNOLOGI INFORMASI DAN KEWIRAUSAHAAN",
-                              style: TextStyle(
-                                fontFamily: 'Poppinsbold',
-                                fontSize: 12,
+                        padding: const EdgeInsets.symmetric(vertical: 5),
+                        child: Container(
+                          child: Expanded(
+                              child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "TEKNOLOGI INFORMASI",
+                                style: TextStyle(
+                                  fontFamily: 'Poppinsbold',
+                                  fontSize: 12,
+                                ),
                               ),
-                            ),
-                            SizedBox(
-                              height: 9,
-                            ),
-                            Text(
-                              "DARING 6",
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontFamily: 'Poppinsmedium',
+                              SizedBox(
+                                height: 9,
                               ),
-                            )
-                          ],
-                        )),
+                              Text(
+                                "DARING 6",
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontFamily: 'Poppinsmedium',
+                                ),
+                              )
+                            ],
+                          )),
+                        ),
                       ),
                     ),
-                  ),
-                  Expanded(
-                      child: Padding(
-                    padding: const EdgeInsets.only(
-                      right: 5,
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Text(
-                          "selasa",
-                          style: TextStyle(
-                            fontSize: 10,
-                            fontFamily: 'Poppinsregular',
+                    Expanded(
+                        child: Padding(
+                      padding: const EdgeInsets.only(
+                        right: 5,
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text(
+                            "selasa",
+                            style: TextStyle(
+                              fontSize: 10,
+                              fontFamily: 'Poppinsregular',
+                            ),
                           ),
-                        ),
-                        Text(
-                          "10:31-12:11",
-                          style: TextStyle(
-                            fontSize: 10,
-                            fontFamily: 'Poppinsregular',
+                          Text(
+                            "10:31-12:11",
+                            style: TextStyle(
+                              fontSize: 10,
+                              fontFamily: 'Poppinsregular',
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                  ))
-                ],
+                        ],
+                      ),
+                    ))
+                  ],
+                ),
               ),
-            ),
-            SizedBox(
-              height: 12,
-            ),
-          ],
+              SizedBox(
+                height: 21,
+              ),
+              Container(
+                width: double.infinity,
+                height: 69,
+                margin: EdgeInsets.symmetric(horizontal: 20),
+                decoration: BoxDecoration(
+                    color: Color(0x20FF9100),
+                    border: Border.all(
+                      color: Color(0xffFF9100),
+                      width: 2,
+                    )),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: Container(
+                        width: 2,
+                        height: 45,
+                        color: Color(0xff00712D),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 5),
+                        child: Container(
+                          child: Expanded(
+                              child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "TEKNOLOGI INFORMASI",
+                                style: TextStyle(
+                                  fontFamily: 'Poppinsbold',
+                                  fontSize: 12,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 9,
+                              ),
+                              Text(
+                                "DARING 6",
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontFamily: 'Poppinsmedium',
+                                ),
+                              )
+                            ],
+                          )),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                        child: Padding(
+                      padding: const EdgeInsets.only(
+                        right: 5,
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text(
+                            "selasa",
+                            style: TextStyle(
+                              fontSize: 10,
+                              fontFamily: 'Poppinsregular',
+                            ),
+                          ),
+                          Text(
+                            "10:31-12:11",
+                            style: TextStyle(
+                              fontSize: 10,
+                              fontFamily: 'Poppinsregular',
+                            ),
+                          ),
+                        ],
+                      ),
+                    ))
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 21,
+              ),
+              Container(
+                width: double.infinity,
+                height: 69,
+                margin: EdgeInsets.symmetric(horizontal: 20),
+                decoration: BoxDecoration(
+                    color: Color(0x2000712D),
+                    border: Border.all(
+                      color: Color(0xff00712D),
+                      width: 2,
+                    )),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: Container(
+                        width: 2,
+                        height: 45,
+                        color: Color(0xff00712D),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 5),
+                        child: Container(
+                          child: Expanded(
+                              child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "TEKNOLOGI INFORMASI",
+                                style: TextStyle(
+                                  fontFamily: 'Poppinsbold',
+                                  fontSize: 12,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 9,
+                              ),
+                              Text(
+                                "DARING 6",
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontFamily: 'Poppinsmedium',
+                                ),
+                              )
+                            ],
+                          )),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                        child: Padding(
+                      padding: const EdgeInsets.only(
+                        right: 5,
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text(
+                            "selasa",
+                            style: TextStyle(
+                              fontSize: 10,
+                              fontFamily: 'Poppinsregular',
+                            ),
+                          ),
+                          Text(
+                            "10:31-12:11",
+                            style: TextStyle(
+                              fontSize: 10,
+                              fontFamily: 'Poppinsregular',
+                            ),
+                          ),
+                        ],
+                      ),
+                    ))
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 21,
+              ),
+              Container(
+                width: double.infinity,
+                height: 69,
+                margin: EdgeInsets.symmetric(horizontal: 20),
+                decoration: BoxDecoration(
+                    color: Color(0x20FF9100),
+                    border: Border.all(
+                      color: Color(0xffFF9100),
+                      width: 2,
+                    )),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: Container(
+                        width: 2,
+                        height: 45,
+                        color: Color(0xff00712D),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 5),
+                        child: Container(
+                          child: Expanded(
+                              child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "TEKNOLOGI INFORMASI",
+                                style: TextStyle(
+                                  fontFamily: 'Poppinsbold',
+                                  fontSize: 12,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 9,
+                              ),
+                              Text(
+                                "DARING 6",
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontFamily: 'Poppinsmedium',
+                                ),
+                              )
+                            ],
+                          )),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                        child: Padding(
+                      padding: const EdgeInsets.only(
+                        right: 5,
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text(
+                            "selasa",
+                            style: TextStyle(
+                              fontSize: 10,
+                              fontFamily: 'Poppinsregular',
+                            ),
+                          ),
+                          Text(
+                            "10:31-12:11",
+                            style: TextStyle(
+                              fontSize: 10,
+                              fontFamily: 'Poppinsregular',
+                            ),
+                          ),
+                        ],
+                      ),
+                    ))
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 21,
+              ),
+              Container(
+                height: 69,
+                width: double.infinity,
+                margin: EdgeInsets.symmetric(horizontal: 20),
+                decoration: BoxDecoration(
+                    color: Color(0x2000712D),
+                    border: Border.all(
+                      color: Color(0xff00712D),
+                      width: 2,
+                    )),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: Container(
+                        width: 2,
+                        height: 45,
+                        color: Color(0xff00712D),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 5),
+                        child: Container(
+                          child: Expanded(
+                              child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "TEKNOLOGI INFORMASI",
+                                style: TextStyle(
+                                  fontFamily: 'Poppinsbold',
+                                  fontSize: 12,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 9,
+                              ),
+                              Text(
+                                "DARING 6",
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontFamily: 'Poppinsmedium',
+                                ),
+                              )
+                            ],
+                          )),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                        child: Padding(
+                      padding: const EdgeInsets.only(
+                        right: 5,
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text(
+                            "selasa",
+                            style: TextStyle(
+                              fontSize: 10,
+                              fontFamily: 'Poppinsregular',
+                            ),
+                          ),
+                          Text(
+                            "10:31-12:11",
+                            style: TextStyle(
+                              fontSize: 10,
+                              fontFamily: 'Poppinsregular',
+                            ),
+                          ),
+                        ],
+                      ),
+                    ))
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 12,
+              ),
+            ],
+          ),
         ),
         bottomNavigationBar: BottomAppBar(
           child: ElevatedButton(
