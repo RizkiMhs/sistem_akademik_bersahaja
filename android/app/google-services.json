@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "43889441264",
+    "project_id": "sistem-akademik-a3",
+    "storage_bucket": "sistem-akademik-a3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:43889441264:android:16ecc12892427701938535",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAs5FaKxOxP5SsEkvfQSdFhMComvsEt3UQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
