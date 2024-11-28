@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/utils/color.dart';
 import 'package:flutter_application_1/views/homepage.dart';
+import 'package:flutter_application_1/views/login.dart';
 import 'package:flutter_application_1/views/register.dart';
+import 'package:get/get.dart';
+import 'package:flutter_application_1/app/controllers/auth_controller.dart';
 
 class LoginTwo extends StatefulWidget {
   const LoginTwo({super.key});
@@ -14,7 +17,11 @@ class _LoginTwoState extends State<LoginTwo> {
   TextEditingController cUser = TextEditingController();
   TextEditingController cPass = TextEditingController();
   final formKey = GlobalKey<FormState>();
+  final authC = Get.put(AuthController());
   bool passToggle = true;
+
+  // final authC = Get.put(AuthController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -108,7 +115,7 @@ class _LoginTwoState extends State<LoginTwo> {
                           Padding(
                             padding: EdgeInsets.only(left: 20, top: 23),
                             child: Text(
-                              'username',
+                              'email',
                               // textAlign: TextAlign.left,
                               style: TextStyle(
                                 fontFamily: 'PoppinsRegular',
@@ -135,7 +142,7 @@ class _LoginTwoState extends State<LoginTwo> {
                             border: InputBorder
                                 .none, // Menghilangkan border default
                             hintText:
-                                'Masukkan username ', // Placeholder untuk input
+                                'Masukkan email ', // Placeholder untuk input
                             hintStyle: TextStyle(
                               color: Color(0x8000712D),
                               fontSize: 14,
@@ -226,25 +233,7 @@ class _LoginTwoState extends State<LoginTwo> {
                             child: ElevatedButton(
                               onPressed: () {
                                 if (formKey.currentState!.validate()) {
-                                  if ((cUser.text == 'admin' &&
-                                          cPass.text == 'admin') ||
-                                      (cUser.text == 'user' &&
-                                          cPass.text == '123')) {
-                                    Navigator.pushReplacement(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                const Homepage()));
-                                  } else {
-                                    cUser.text = '';
-                                    cPass.text = '';
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      const SnackBar(
-                                        content: Text(
-                                            'Username atau Password Salah'),
-                                      ),
-                                    );
-                                  }
+                                  authC.login(cUser.text, cPass.text);
                                 }
                               },
                               style: ElevatedButton.styleFrom(
@@ -281,10 +270,14 @@ class _LoginTwoState extends State<LoginTwo> {
                                   ),
                                   GestureDetector(
                                     onTap: () {
-                                      Navigator.pushReplacement(
-                                          context,
+                                      //   Navigator.push(
+                                      //       context,
+                                      //       MaterialPageRoute(
+                                      //           builder: (context) =>
+                                      //               const Register()));
+                                      Navigator.of(context).push(
                                           MaterialPageRoute(
-                                              builder: (context) =>
+                                              builder: (BuildContext) =>
                                                   const Register()));
                                     },
                                     child: Text('Register',

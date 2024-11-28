@@ -4,6 +4,9 @@ import 'package:flutter_application_1/infoakun/datadiri.dart';
 import 'package:flutter_application_1/infoakun/ubahsandi.dart';
 import 'package:flutter_application_1/utils/color.dart';
 import 'package:flutter_application_1/views/homepage.dart';
+import 'package:flutter_application_1/views/login2.dart';
+import 'package:get/get.dart';
+import 'package:flutter_application_1/app/controllers/auth_controller.dart';
 
 class infoakun extends StatefulWidget {
   const infoakun({super.key});
@@ -13,6 +16,7 @@ class infoakun extends StatefulWidget {
 }
 
 class _infoakunState extends State<infoakun> {
+  final authC = Get.find<AuthController>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -235,21 +239,46 @@ class _infoakunState extends State<infoakun> {
           SizedBox(
             height: 20,
           ),
-          Container(
-            width: double.infinity,
-            height: 53,
-            margin: const EdgeInsets.symmetric(horizontal: 20),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Colors.black,
-            ),
-            child: Center(
-              child: Text(
-                "Keluar",
-                style: TextStyle(
-                    fontFamily: 'Poppinssemibold',
-                    fontSize: 18,
-                    color: whitecolor),
+          GestureDetector(
+            onTap: () async {
+              bool confirmLogout = await showDialog(
+                context: context,
+                builder: (context) => AlertDialog(
+                  title: const Text("Konfirmasi Logout"),
+                  content: const Text("Apakah Anda yakin ingin keluar?"),
+                  actions: [
+                    TextButton(
+                        onPressed: () => Navigator.of(context).pop(false),
+                        child: const Text("Batal")),
+                    TextButton(
+                      onPressed: () => Navigator.of(context).pop(true),
+                      child: const Text("Keluar"),
+                    ),
+                  ],
+                ),
+              );
+
+              if (confirmLogout) {
+                authC.logOut();
+                Navigator.of(context).pop();
+              }
+            },
+            child: Container(
+              width: double.infinity,
+              height: 53,
+              margin: const EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.black,
+              ),
+              child: Center(
+                child: Text(
+                  "Keluar",
+                  style: TextStyle(
+                      fontFamily: 'Poppinssemibold',
+                      fontSize: 18,
+                      color: whitecolor),
+                ),
               ),
             ),
           ),

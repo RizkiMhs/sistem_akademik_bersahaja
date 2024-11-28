@@ -10,6 +10,9 @@ import 'package:flutter_application_1/tagihan/tagihan.dart';
 import 'package:flutter_application_1/trNilai/transkipnilai.dart';
 import 'package:flutter_application_1/views/detail_pmn.dart';
 import 'package:flutter_application_1/views/informasi_matkul.dart';
+import 'package:flutter_application_1/views/login2.dart';
+import 'package:get/get.dart';
+import 'package:flutter_application_1/app/controllers/auth_controller.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -19,6 +22,7 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
+  final authC = Get.find<AuthController>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -259,7 +263,7 @@ class _HomepageState extends State<Homepage> {
                   ),
                   SizedBox(width: 15),
                   GestureDetector(
-                     onTap: () {
+                    onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (BuildContext) => const Transkipnilai()));
                     },
@@ -341,7 +345,7 @@ class _HomepageState extends State<Homepage> {
                   ),
                   SizedBox(width: 15),
                   GestureDetector(
-                     onTap: () {
+                    onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (BuildContext) => const KrsMenu()));
                     },
@@ -423,7 +427,7 @@ class _HomepageState extends State<Homepage> {
                   ),
                   SizedBox(width: 15),
                   GestureDetector(
-                     onTap: () {
+                    onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (BuildContext) => const Saran()));
                     },
@@ -464,9 +468,9 @@ class _HomepageState extends State<Homepage> {
                   ),
                   SizedBox(width: 15),
                   GestureDetector(
-                     onTap: () {
+                    onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (BuildContext) => const Tagihan ()));
+                          builder: (BuildContext) => const Tagihan()));
                     },
                     child: Container(
                       width: 100,

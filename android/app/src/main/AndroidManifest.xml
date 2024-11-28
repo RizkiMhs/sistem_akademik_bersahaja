@@ -2,7 +2,7 @@
     <application
         android:label="SiAmal"
         android:name="${applicationName}"
-        android:icon="@mipmap/launcher_icon">
+        android:icon="@drawable/splash">
         <activity
             android:name=".MainActivity"
             android:exported="true"
