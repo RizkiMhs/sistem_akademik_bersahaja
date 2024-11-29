@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 
 class Saran extends StatefulWidget {
   const Saran({super.key});
@@ -11,35 +12,63 @@ class _SaranState extends State<Saran> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _keluhanController = TextEditingController();
   final TextEditingController _namaController = TextEditingController();
+  final FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
 
-  // Method to show notification dialog
-  void _showNotificationDialog() {
+  @override
+  void initState() {
+    super.initState();
+    // Request notification permissions
+    _firebaseMessaging.requestPermission();
+    // Listen to foreground notifications
+    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+      if (message.notification != null) {
+        _showForegroundNotification(message.notification!);
+      }
+    });
+  }
+   void _showForegroundNotification(RemoteNotification notification) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-          content: Container(
+          title: Text(notification.title ?? 'Notifikasi'),
+          content: Text(notification.body ?? 'Ada pesan baru'),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: const Text('OK'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+ void _showSuccessDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+          content: SizedBox(
             height: 110,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
+                const Text(
                   'Kritik dan saran berhasil dikirim',
                   style: TextStyle(
                     fontSize: 16,
-                    color: const Color.fromARGB(128, 0, 0, 0),
+                    color: Colors.black54,
                     fontWeight: FontWeight.bold,
                   ),
                   textAlign: TextAlign.center,
                 ),
-                // SizedBox(height: 5,),
-                // Image.asset('assets/images/mark_email_read.png'),
-                SizedBox(height: 20),
-                Icon(
-                  Icons.mark_email_read_rounded, // Success icon
-                  color: const Color.fromARGB(255, 167, 174, 168),
+                const SizedBox(height: 20),
+                const Icon(
+                  Icons.mark_email_read_rounded,
+                  color: Colors.grey,
                   size: 40,
                 ),
               ],
@@ -51,14 +80,14 @@ class _SaranState extends State<Saran> {
                 width: 268,
                 height: 48,
                 decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 41, 0, 176),
+                  color: const Color.fromRGBO(0, 90, 36, 1),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: TextButton(
                   onPressed: () {
                     Navigator.of(context).pop(); // Close the dialog
                   },
-                  child: Text(
+                  child: const Text(
                     'OK',
                     style: TextStyle(
                       fontSize: 16,
@@ -75,6 +104,19 @@ class _SaranState extends State<Saran> {
     );
   }
 
+  void _sendFeedback() {
+    print("Nama: ${_namaController.text}");
+    print("E-Mail: ${_emailController.text}");
+    print("Keluhan & Saran: ${_keluhanController.text}");
+
+    // Simulate sending data to the server
+    Future.delayed(const Duration(seconds: 2), () {
+      _showSuccessDialog();
+    });
+
+    // Simulate sending push notification
+    _firebaseMessaging.subscribeToTopic('feedback');
+  }
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -205,13 +247,13 @@ class _SaranState extends State<Saran> {
               // KIRIM Button
               GestureDetector(
                 onTap: () {
-                  print("KIRIM");
-                  print("Nama: ${_namaController.text}");
-                  print("E-Mail: ${_emailController.text}");
-                  print("Keluhan & Saran: ${_keluhanController.text}");
+                  // print("KIRIM");
+                  // print("Nama: ${_namaController.text}");
+                  // print("E-Mail: ${_emailController.text}");
+                  // print("Keluhan & Saran: ${_keluhanController.text}");
 
                   // Show notification dialog
-                  _showNotificationDialog();
+                  _sendFeedback();
                 },
                 child: Container(
                   width: double.infinity,

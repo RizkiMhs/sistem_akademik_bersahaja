@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/views/homepage.dart';
 import 'package:flutter_application_1/views/login2.dart';
@@ -15,7 +16,10 @@ class _RegisterState extends State<Register> {
   TextEditingController cUser = TextEditingController();
   TextEditingController cPass = TextEditingController();
   TextEditingController cConfirmPass = TextEditingController();
+  TextEditingController cNIM = TextEditingController();
   final formKey = GlobalKey<FormState>();
+  String _errorMessage = '';
+
   bool passToggle = true;
 
   // Instance of AuthController
@@ -69,92 +73,167 @@ class _RegisterState extends State<Register> {
                           topRight: Radius.circular(30),
                         ),
                       ),
-                      child: Column(
-                        children: [
-                          const Padding(
-                            padding: EdgeInsets.only(top: 10),
-                            child: Text(
-                              'Register',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontFamily: 'PoppinsEkstraBold',
-                                fontSize: 24,
-                                color: Color(0xFF00712D),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: 20),
-                          // Username Field
-                          buildInputField(
-                              controller: cUser,
-                              hintText: 'Masukkan Email',
-                              labelText: 'Email',
-                              icon: Icons.person),
-                          const SizedBox(height: 20),
-                          // Password Field
-                          buildPasswordField(
-                              controller: cPass,
-                              hintText: 'Masukkan password',
-                              labelText: 'Password'),
-                          const SizedBox(height: 20),
-                          // Confirm Password Field
-                          buildPasswordField(
-                              controller: cConfirmPass,
-                              hintText: 'Konfirmasi password',
-                              labelText: 'Konfirmasi Password'),
-                          const SizedBox(height: 20),
-                          // Register Button
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 20),
-                            child: ElevatedButton(
-                              onPressed: () {
-                                if (formKey.currentState!.validate()) {
-                                  if (cPass.text == cConfirmPass.text) {
-                                    // Call register function
-                                    authController.register(
-                                      cUser.text.trim(),
-                                      cPass.text.trim(),
-                                    );
-                                    // Navigate to Homepage if successful
-                                    // Get.off(() => const Homepage());
-                                    Get.snackbar(
-                                        "success", "berhasil register");
-                                  } else {
-                                    Get.snackbar('Error',
-                                        'Password dan konfirmasi tidak cocok');
-                                  }
-                                }
-                              },
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: const Color(0xFFFF9100),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                minimumSize: const Size(double.infinity, 53),
-                              ),
-                              child: const Text(
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            const Padding(
+                              padding: EdgeInsets.only(top: 10),
+                              child: Text(
                                 'Register',
+                                textAlign: TextAlign.center,
                                 style: TextStyle(
-                                  fontFamily: 'Poppinsmedium',
-                                  fontSize: 14,
-                                  color: Color(0xFFFFFFFF),
+                                  fontFamily: 'PoppinsEkstraBold',
+                                  fontSize: 24,
+                                  color: Color(0xFF00712D),
                                 ),
                               ),
                             ),
-                          ),
-                          Align(
-                            alignment: Alignment.centerRight,
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.of(context).pop();
+                            // Pesan Error Global
+                            if (_errorMessage.isNotEmpty)
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 20),
+                                child: Text(
+                                  _errorMessage,
+                                  style: const TextStyle(
+                                      color: Colors.red, fontSize: 14),
+                                ),
+                              ),
+
+                            // Input Email
+                            _buildInputField(
+                              label: 'Email',
+                              hint: 'Masukkan email',
+                              controller: cUser,
+                              icon: Icons.person,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Email tidak boleh kosong';
+                                }
+                                if (!RegExp(r'^[^@]+@[^@]+\.[^@]+')
+                                    .hasMatch(value)) {
+                                  return 'Format email tidak valid';
+                                }
+                                return null;
                               },
-                              child: const Padding(
-                                padding: EdgeInsets.only(top: 20, right: 10),
-                                child: Text("Sudah punya akun"),
+                            ),
+
+                            // Input NIM
+                            _buildInputField(
+                              label: 'NIM',
+                              hint: 'Masukkan NIM',
+                              controller: cNIM,
+                              icon: Icons.school,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'NIM tidak boleh kosong';
+                                }
+                                return null;
+                              },
+                            ),
+
+                            // Input Password
+                            _buildPasswordField(
+                              label: 'Password',
+                              hint: 'Masukkan password',
+                              controller: cPass,
+                            ),
+
+                            // Input Konfirmasi Password
+                            _buildPasswordField(
+                              label: 'Konfirmasi Password',
+                              hint: 'Masukkan konfirmasi password',
+                              controller: cConfirmPass,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Konfirmasi password tidak boleh kosong';
+                                }
+                                if (value != cPass.text) {
+                                  return 'Password tidak cocok';
+                                }
+                                return null;
+                              },
+                            ),
+
+                            // Tombol Register
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 20),
+                              child: ElevatedButton(
+                                onPressed: () async {
+                                  if (formKey.currentState!.validate()) {
+                                    try {
+                                      await FirebaseAuth.instance
+                                          .createUserWithEmailAndPassword(
+                                        email: cUser.text.trim(),
+                                        password: cPass.text.trim(),
+                                      );
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        const SnackBar(
+                                            content:
+                                                Text('Registrasi berhasil')),
+                                      );
+                                      Navigator.pop(context);
+                                    } on FirebaseAuthException catch (e) {
+                                      setState(() {
+                                        if (e.code == 'email-already-in-use') {
+                                          _errorMessage =
+                                              'Email sudah digunakan';
+                                        } else if (e.code == 'weak-password') {
+                                          _errorMessage =
+                                              'Password terlalu lemah';
+                                        } else {
+                                          _errorMessage =
+                                              'Registrasi gagal: ${e.message}';
+                                        }
+                                      });
+                                    }
+                                  }
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: const Color(0xFFFF9100),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  minimumSize: const Size(double.infinity, 53),
+                                ),
+                                child: const Text(
+                                  'Register',
+                                  style: TextStyle(
+                                    fontFamily: 'Poppinsmedium',
+                                    fontSize: 14,
+                                    color: Color(0xFFFFFFFF),
+                                  ),
+                                ),
                               ),
                             ),
-                          )
-                        ],
+
+                            // Navigasi ke Login
+                            Align(
+                              alignment: Alignment.center,
+                              child: GestureDetector(
+                                onTap: () {
+                                  Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const LoginTwo()));
+                                },
+                                child: const Padding(
+                                  padding: EdgeInsets.only(top: 20),
+                                  child: Text(
+                                    "Sudah punya akun? Login di sini",
+                                    style: TextStyle(
+                                      color: Color(0xFF00712D),
+                                      fontSize: 14,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -194,43 +273,121 @@ class _RegisterState extends State<Register> {
     );
   }
 
-  Widget buildPasswordField(
-      {required TextEditingController controller,
-      required String hintText,
-      required String labelText}) {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 20),
-      decoration: BoxDecoration(
-        color: const Color(0x20005A24),
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: TextFormField(
-        controller: controller,
-        obscureText: passToggle,
-        decoration: InputDecoration(
-          hintText: hintText,
-          labelText: labelText,
-          prefixIcon: const Icon(Icons.lock, color: Color(0xff00712D)),
-          suffixIcon: InkWell(
-            onTap: () {
-              setState(() {
-                passToggle = !passToggle;
-              });
-            },
-            child: Icon(
-              passToggle ? Icons.visibility : Icons.visibility_off,
-              color: const Color(0xff00712D),
+  Widget _buildInputField({
+    required String label,
+    required String hint,
+    required TextEditingController controller,
+    required IconData icon,
+    String? Function(String?)? validator,
+  }) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(left: 20, top: 20),
+          child: Text(
+            label,
+            style: const TextStyle(
+              fontFamily: 'PoppinsRegular',
+              fontSize: 14,
+              color: Color(0xFF00712D),
             ),
           ),
-          border: InputBorder.none,
         ),
-        validator: (value) {
-          if (value == null || value.isEmpty) {
-            return '$labelText tidak boleh kosong';
-          }
-          return null;
-        },
-      ),
+        Container(
+          width: double.infinity,
+          height: 53,
+          margin: const EdgeInsets.symmetric(horizontal: 20),
+          decoration: BoxDecoration(
+            color: const Color(0x20005A24),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: TextFormField(
+            controller: controller,
+            validator: validator,
+            decoration: InputDecoration(
+              contentPadding:
+                  const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+              border: InputBorder.none,
+              hintText: hint,
+              hintStyle: const TextStyle(
+                color: Color(0x8000712D),
+                fontSize: 14,
+              ),
+              prefixIcon: Icon(icon, color: const Color(0xff00712D)),
+            ),
+            style: const TextStyle(color: Colors.black),
+          ),
+        ),
+      ],
+    );
+  }
+
+  // Widget untuk Password Field
+  Widget _buildPasswordField({
+    required String label,
+    required String hint,
+    required TextEditingController controller,
+    String? Function(String?)? validator,
+  }) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(left: 20, top: 20),
+          child: Text(
+            label,
+            style: const TextStyle(
+              fontFamily: 'PoppinsRegular',
+              fontSize: 14,
+              color: Color(0xFF00712D),
+            ),
+          ),
+        ),
+        Container(
+          width: double.infinity,
+          height: 53,
+          margin: const EdgeInsets.symmetric(horizontal: 20),
+          decoration: BoxDecoration(
+            color: const Color(0x20005A24),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: TextFormField(
+            controller: controller,
+            obscureText: passToggle,
+            validator: validator ??
+                (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Password tidak boleh kosong';
+                  }
+                  return null;
+                },
+            decoration: InputDecoration(
+              contentPadding:
+                  const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+              border: InputBorder.none,
+              hintText: hint,
+              hintStyle: const TextStyle(
+                color: Color(0x8000712D),
+                fontSize: 14,
+              ),
+              prefixIcon: const Icon(Icons.lock, color: Color(0xff00712D)),
+              suffixIcon: InkWell(
+                onTap: () {
+                  setState(() {
+                    passToggle = !passToggle;
+                  });
+                },
+                child: Icon(
+                  passToggle ? Icons.visibility : Icons.visibility_off,
+                  color: const Color(0xff00712D),
+                ),
+              ),
+            ),
+            style: const TextStyle(color: Colors.black),
+          ),
+        ),
+      ],
     );
   }
 }

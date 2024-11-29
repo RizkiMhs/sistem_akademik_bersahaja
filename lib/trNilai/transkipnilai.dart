@@ -180,7 +180,7 @@ class _TranskipnilaiState extends State<Transkipnilai> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'TEKNOLOGI INFORMASI DAN KEWIRAUSAHAAN',
+                                          'TEKNOLOGI INFORMASI ',
                                           style: TextStyle(
                                             fontFamily: "PoppinsBold",
                                             fontSize: 10,
@@ -261,7 +261,7 @@ class _TranskipnilaiState extends State<Transkipnilai> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'TEKNOLOGI INFORMASI DAN KEWIRAUSAHAAN',
+                                          'TEKNOLOGI INFORMASI',
                                           style: TextStyle(
                                             fontFamily: "PoppinsBold",
                                             fontSize: 10,
@@ -340,7 +340,7 @@ class _TranskipnilaiState extends State<Transkipnilai> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'TEKNOLOGI INFORMASI DAN KEWIRAUSAHAAN',
+                                          'TEKNOLOGI INFORMASI',
                                           style: TextStyle(
                                             fontFamily: "PoppinsBold",
                                             fontSize: 10,
@@ -419,7 +419,7 @@ class _TranskipnilaiState extends State<Transkipnilai> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'TEKNOLOGI INFORMASI DAN KEWIRAUSAHAAN',
+                                          'TEKNOLOGI INFORMASI',
                                           style: TextStyle(
                                             fontFamily: "PoppinsBold",
                                             fontSize: 10,
@@ -498,7 +498,7 @@ class _TranskipnilaiState extends State<Transkipnilai> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'TEKNOLOGI INFORMASI DAN KEWIRAUSAHAAN',
+                                          'TEKNOLOGI INFORMASI ',
                                           style: TextStyle(
                                             fontFamily: "PoppinsBold",
                                             fontSize: 10,
@@ -577,7 +577,7 @@ class _TranskipnilaiState extends State<Transkipnilai> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'TEKNOLOGI INFORMASI DAN KEWIRAUSAHAAN',
+                                          'TEKNOLOGI INFORMASI',
                                           style: TextStyle(
                                             fontFamily: "PoppinsBold",
                                             fontSize: 10,
@@ -656,7 +656,7 @@ class _TranskipnilaiState extends State<Transkipnilai> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'TEKNOLOGI INFORMASI DAN KEWIRAUSAHAAN',
+                                          'TEKNOLOGI INFORMASI',
                                           style: TextStyle(
                                             fontFamily: "PoppinsBold",
                                             fontSize: 10,
@@ -735,7 +735,7 @@ class _TranskipnilaiState extends State<Transkipnilai> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'TEKNOLOGI INFORMASI DAN KEWIRAUSAHAAN',
+                                          'TEKNOLOGI INFORMASI',
                                           style: TextStyle(
                                             fontFamily: "PoppinsBold",
                                             fontSize: 10,
@@ -814,7 +814,7 @@ class _TranskipnilaiState extends State<Transkipnilai> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'TEKNOLOGI INFORMASI DAN KEWIRAUSAHAAN',
+                                          'TEKNOLOGI INFORMASI',
                                           style: TextStyle(
                                             fontFamily: "PoppinsBold",
                                             fontSize: 10,
@@ -893,7 +893,7 @@ class _TranskipnilaiState extends State<Transkipnilai> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'TEKNOLOGI INFORMASI DAN KEWIRAUSAHAAN',
+                                          'TEKNOLOGI INFORMASI ',
                                           style: TextStyle(
                                             fontFamily: "PoppinsBold",
                                             fontSize: 10,
@@ -972,7 +972,7 @@ class _TranskipnilaiState extends State<Transkipnilai> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'TEKNOLOGI INFORMASI DAN KEWIRAUSAHAAN',
+                                          'TEKNOLOGI INFORMASI',
                                           style: TextStyle(
                                             fontFamily: "PoppinsBold",
                                             fontSize: 10,
@@ -1051,7 +1051,7 @@ class _TranskipnilaiState extends State<Transkipnilai> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'TEKNOLOGI INFORMASI DAN KEWIRAUSAHAAN',
+                                          'TEKNOLOGI INFORMASI ',
                                           style: TextStyle(
                                             fontFamily: "PoppinsBold",
                                             fontSize: 10,
@@ -1130,7 +1130,7 @@ class _TranskipnilaiState extends State<Transkipnilai> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'TEKNOLOGI INFORMASI DAN KEWIRAUSAHAAN',
+                                          'TEKNOLOGI INFORMASI',
                                           style: TextStyle(
                                             fontFamily: "PoppinsBold",
                                             fontSize: 10,
@@ -1209,7 +1209,7 @@ class _TranskipnilaiState extends State<Transkipnilai> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'TEKNOLOGI INFORMASI DAN KEWIRAUSAHAAN',
+                                          'TEKNOLOGI INFORMASI ',
                                           style: TextStyle(
                                             fontFamily: "PoppinsBold",
                                             fontSize: 10,
@@ -1288,7 +1288,7 @@ class _TranskipnilaiState extends State<Transkipnilai> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'TEKNOLOGI INFORMASI DAN KEWIRAUSAHAAN',
+                                          'TEKNOLOGI INFORMASI',
                                           style: TextStyle(
                                             fontFamily: "PoppinsBold",
                                             fontSize: 10,
@@ -1367,7 +1367,7 @@ class _TranskipnilaiState extends State<Transkipnilai> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'TEKNOLOGI INFORMASI DAN KEWIRAUSAHAAN',
+                                          'TEKNOLOGI INFORMASI',
                                           style: TextStyle(
                                             fontFamily: "PoppinsBold",
                                             fontSize: 10,
@@ -1479,7 +1479,11 @@ class _TranskipnilaiState extends State<Transkipnilai> {
                       content: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Image.asset("assets/images/cloud_done.png"),
+                          Icon(
+                            Icons.check_circle,
+                            size: 100,
+                            color: Color(0XFF1400FF),
+                          ),
                         ],
                       ),
                     ));
@@ -1523,11 +1527,12 @@ class _TranskipnilaiState extends State<Transkipnilai> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 175),
-                child: Image.asset(
-                  "assets/images/Print.png",
-                ),
-              ),
+                  padding: const EdgeInsets.only(left: 150),
+                  child: Icon(
+                    Icons.print,
+                    size: 30,
+                    color: Colors.white,
+                  )),
             ],
           ),
         )),

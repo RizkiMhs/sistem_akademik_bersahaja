@@ -1,6 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_application_1/api/firebase_api.dart';
+import 'package:flutter_application_1/saran/saran.dart';
 import 'package:flutter_application_1/views/homepage.dart';
 import 'package:flutter_application_1/views/login2.dart';
 import 'firebase_options.dart';
@@ -8,6 +11,10 @@ import 'package:flutter_application_1/views/tes.dart';
 import 'package:get/get.dart';
 import 'package:flutter_application_1/app/controllers/auth_controller.dart';
 
+@pragma('vm:entry-point')
+Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  print("Handling a background message: ${message.messageId}");
+}
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -15,6 +22,8 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   Get.put(AuthController());
+  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+  await FirebaseApi().initNotifications();
   runApp(const MyApp());
 }
 
@@ -45,3 +54,16 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+// StreamBuilder<User?>(
+//         stream: FirebaseAuth.instance.authStateChanges(),
+//         builder: (context, snapshot) {
+//           if (snapshot.connectionState == ConnectionState.waiting) {
+//             return const Center(child: CircularProgressIndicator());
+//           }
+//           if (snapshot.hasData) {
+//             return const Homepage(); // Pengguna sudah login.
+//           }
+//           return SplashScreen(); // Arahkan ke halaman login.
+//         },
+//       ),

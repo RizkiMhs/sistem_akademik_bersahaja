@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/info/pesan.dart';
 import 'package:flutter_application_1/infoakun/datadiri.dart';
@@ -143,7 +144,7 @@ class _infoakunState extends State<infoakun> {
           ),
           GestureDetector(
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
                   builder: (BuildContext) => const datadiri()));
             },
             child: Container(
@@ -192,7 +193,7 @@ class _infoakunState extends State<infoakun> {
           ),
           GestureDetector(
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
                   builder: (BuildContext) => const ubahsandi()));
             },
             child: Container(
@@ -241,26 +242,46 @@ class _infoakunState extends State<infoakun> {
           ),
           GestureDetector(
             onTap: () async {
-              bool confirmLogout = await showDialog(
+              // Konfirmasi sebelum logout
+              bool? shouldLogout = await showDialog(
                 context: context,
-                builder: (context) => AlertDialog(
-                  title: const Text("Konfirmasi Logout"),
-                  content: const Text("Apakah Anda yakin ingin keluar?"),
-                  actions: [
-                    TextButton(
-                        onPressed: () => Navigator.of(context).pop(false),
-                        child: const Text("Batal")),
-                    TextButton(
-                      onPressed: () => Navigator.of(context).pop(true),
-                      child: const Text("Keluar"),
-                    ),
-                  ],
-                ),
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    title: const Text("Keluar"),
+                    content: const Text("Apakah Anda yakin ingin keluar?"),
+                    actions: [
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pop(false); // Batal
+                        },
+                        child: const Text("Batal"),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pop(true); // Lanjutkan
+                        },
+                        child: const Text("Keluar"),
+                      ),
+                    ],
+                  );
+                },
               );
 
-              if (confirmLogout) {
-                authC.logOut();
-                Navigator.of(context).pop();
+              // Jika pengguna memilih untuk logout
+              if (shouldLogout ?? false) {
+                try {
+                  await FirebaseAuth.instance.signOut();
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (BuildContext) => const LoginTwo()));
+                } catch (e) {
+                  // Menampilkan pesan error jika logout gagal
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text("Gagal logout: $e"),
+                      backgroundColor: Colors.red,
+                    ),
+                  );
+                }
               }
             },
             child: Container(

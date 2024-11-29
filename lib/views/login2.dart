@@ -1,7 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/utils/color.dart';
 import 'package:flutter_application_1/views/homepage.dart';
 import 'package:flutter_application_1/views/login.dart';
+import 'package:flutter_application_1/views/lupapw.dart';
 import 'package:flutter_application_1/views/register.dart';
 import 'package:get/get.dart';
 import 'package:flutter_application_1/app/controllers/auth_controller.dart';
@@ -17,7 +19,7 @@ class _LoginTwoState extends State<LoginTwo> {
   TextEditingController cUser = TextEditingController();
   TextEditingController cPass = TextEditingController();
   final formKey = GlobalKey<FormState>();
-  final authC = Get.put(AuthController());
+  String _errorMessage = '';
   bool passToggle = true;
 
   // final authC = Get.put(AuthController());
@@ -80,6 +82,7 @@ class _LoginTwoState extends State<LoginTwo> {
             ),
 
             // untuk bagian bawah login
+            // Form Login 
             Form(
               key: formKey,
               child: Padding(
@@ -87,7 +90,6 @@ class _LoginTwoState extends State<LoginTwo> {
                 child: Container(
                   height: 800,
                   width: double.infinity,
-                  // margin: const EdgeInsets.only(top: 100),
                   decoration: const BoxDecoration(
                     color: Color(0xffFFFBE6),
                     borderRadius: BorderRadius.only(
@@ -109,14 +111,14 @@ class _LoginTwoState extends State<LoginTwo> {
                           ),
                         ),
                       ),
+                      // Input Email
                       const Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Padding(
                             padding: EdgeInsets.only(left: 20, top: 23),
                             child: Text(
-                              'email',
-                              // textAlign: TextAlign.left,
+                              'Email',
                               style: TextStyle(
                                 fontFamily: 'PoppinsRegular',
                                 fontSize: 14,
@@ -136,13 +138,11 @@ class _LoginTwoState extends State<LoginTwo> {
                         ),
                         child: TextFormField(
                           controller: cUser,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             contentPadding: EdgeInsets.symmetric(
                                 vertical: 15, horizontal: 15),
-                            border: InputBorder
-                                .none, // Menghilangkan border default
-                            hintText:
-                                'Masukkan email ', // Placeholder untuk input
+                            border: InputBorder.none,
+                            hintText: 'Masukkan email',
                             hintStyle: TextStyle(
                               color: Color(0x8000712D),
                               fontSize: 14,
@@ -150,24 +150,28 @@ class _LoginTwoState extends State<LoginTwo> {
                             prefixIcon:
                                 Icon(Icons.person, color: Color(0xff00712D)),
                           ),
-                          style: TextStyle(color: Colors.black),
-                          // Mengatur teks warna
+                          style: const TextStyle(color: Colors.black),
                           validator: (value) {
                             if (value!.isEmpty) {
-                              return 'Username tidak boleh kosong';
+                              return 'Email tidak boleh kosong';
+                            }
+                            final emailRegex = RegExp(r'^[^@]+@[^@]+\.[^@]+');
+                            if (!emailRegex.hasMatch(value)) {
+                              return 'Format email tidak valid';
                             }
                             return null;
                           },
                         ),
                       ),
+
+                      // Input Password
                       const Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Padding(
                             padding: EdgeInsets.only(left: 20, top: 20),
                             child: Text(
-                              'password',
-                              // textAlign: TextAlign.left,
+                              'Password',
                               style: TextStyle(
                                 fontFamily: 'PoppinsRegular',
                                 fontSize: 14,
@@ -189,13 +193,11 @@ class _LoginTwoState extends State<LoginTwo> {
                           controller: cPass,
                           obscureText: passToggle,
                           decoration: InputDecoration(
-                              contentPadding: EdgeInsets.symmetric(
+                              contentPadding: const EdgeInsets.symmetric(
                                   vertical: 15, horizontal: 15),
-                              border: InputBorder
-                                  .none, // Menghilangkan border default
-                              hintText:
-                                  'Masukkan password', // Placeholder untuk input
-                              hintStyle: TextStyle(
+                              border: InputBorder.none,
+                              hintText: 'Masukkan password',
+                              hintStyle: const TextStyle(
                                 color: Color(0x8000712D),
                                 fontSize: 14,
                               ),
@@ -211,7 +213,7 @@ class _LoginTwoState extends State<LoginTwo> {
                                   passToggle
                                       ? Icons.visibility
                                       : Icons.visibility_off,
-                                  color: Color(0xff00712D),
+                                  color: const Color(0xff00712D),
                                 ),
                               )),
                           style: const TextStyle(color: Colors.black),
@@ -220,110 +222,125 @@ class _LoginTwoState extends State<LoginTwo> {
                               return 'Password tidak boleh kosong';
                             }
                             return null;
-                          }, // Mengatur teks warna
+                          },
                         ),
                       ),
-                      const SizedBox(
+
+                      // Error Message
+                      if (_errorMessage.isNotEmpty)
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
+                          child: Text(
+                            _errorMessage,
+                            style: const TextStyle(
+                                color: Colors.red, fontSize: 14),
+                          ),
+                        ),
+
+                      const SizedBox(height: 20),
+
+                      // Login Button
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: ElevatedButton(
+                          onPressed: () async {
+                            if (formKey.currentState!.validate()) {
+                              try {
+                                await FirebaseAuth.instance
+                                    .signInWithEmailAndPassword(
+                                  email: cUser.text.trim(),
+                                  password: cPass.text.trim(),
+                                );
+                                Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const Homepage()),
+                                );
+                              } on FirebaseAuthException catch (e) {
+                                setState(() {
+                                  if (e.code == 'user-not-found') {
+                                    _errorMessage = 'Pengguna tidak ditemukan';
+                                  } else if (e.code == 'wrong-password') {
+                                    _errorMessage = 'Password salah';
+                                  } else {
+                                    _errorMessage = 'Login gagal: ${e.message}';
+                                  }
+                                });
+                              }
+                            }
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: const Color(0xFFFF9100),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            minimumSize: const Size(double.infinity, 53),
+                          ),
+                          child: const Text(
+                            'Login',
+                            style: TextStyle(
+                              fontFamily: 'Poppinsmedium',
+                              fontSize: 14,
+                              color: Color(0xFFFFFFFF),
+                            ),
+                          ),
+                        ),
+                      ),
+
+                      const SizedBox(height: 10),
+
+                      // Register Navigation
+                      Align(
+                        alignment: Alignment.center,
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const Register()),
+                            );
+                          },
+                          child: Text(
+                            'Belum punya akun? Register di sini',
+                            style: TextStyle(
+                              fontFamily: 'PoppinsBold',
+                              fontSize: 14,
+                              color: greencolor,
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
                         height: 20,
                       ),
-                      Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 20),
-                            child: ElevatedButton(
-                              onPressed: () {
-                                if (formKey.currentState!.validate()) {
-                                  authC.login(cUser.text, cPass.text);
-                                }
-                              },
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: const Color(0xFFFF9100),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                minimumSize: const Size(double.infinity, 53),
-                              ),
-                              child: const Text(
-                                'Login',
-                                style: TextStyle(
-                                  fontFamily: 'Poppinsmedium',
-                                  fontSize: 14,
-                                  color: Color(0xFFFFFFFF),
-                                ),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => LupaPassword()),
+                          );
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.only(right: 10),
+                          child: Align(
+                            alignment: Alignment.centerRight,
+                            child: Text(
+                              'Lupa Password?',
+                              style: TextStyle(
+                                fontFamily: 'PoppinsBold',
+                                fontSize: 14,
+                                color: greencolor,
                               ),
                             ),
                           ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Align(
-                            alignment: Alignment.centerLeft,
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 20, top: 15),
-                              child: Row(
-                                children: [
-                                  Text(
-                                    'Belum punya akun?',
-                                  ),
-                                  SizedBox(
-                                    width: 5,
-                                  ),
-                                  GestureDetector(
-                                    onTap: () {
-                                      //   Navigator.push(
-                                      //       context,
-                                      //       MaterialPageRoute(
-                                      //           builder: (context) =>
-                                      //               const Register()));
-                                      Navigator.of(context).push(
-                                          MaterialPageRoute(
-                                              builder: (BuildContext) =>
-                                                  const Register()));
-                                    },
-                                    child: Text('Register',
-                                        style: TextStyle(
-                                          fontFamily: 'PoppinsBold',
-                                          fontSize: 14,
-                                          color: greencolor,
-                                        )),
-                                  )
-                                ],
-                              ),
-                            ),
-                          )
-                          // Padding(
-                          //   padding: const EdgeInsets.symmetric(horizontal: 20),
-                          //   child: ElevatedButton(
-                          //     onPressed: () {
-                          //       Navigator.of(context).pushReplacement(
-                          //           MaterialPageRoute(
-                          //               builder: (BuildContext) =>
-                          //                   const Register()));
-                          //     },
-                          //     style: ElevatedButton.styleFrom(
-                          //       backgroundColor: const Color(0x20FF9100),
-                          //       shape: RoundedRectangleBorder(
-                          //         borderRadius: BorderRadius.circular(10),
-                          //       ),
-                          //       minimumSize: const Size(double.infinity, 53),
-                          //     ),
-                          //     child: const Text(
-                          //       'Register',
-                          //       style: TextStyle(
-                          //         fontFamily: 'Poppinsmedium',
-                          //         fontSize: 14,
-                          //         color: Color(0xFFFFFFFF),
-                          //       ),
-                          //     ),
-                          //   ),
-                          // ),
-                        ],
+                        ),
                       ),
                     ],
                   ),
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
