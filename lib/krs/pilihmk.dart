@@ -82,7 +82,8 @@ class _PilihMataKuliahState extends State<PilihMataKuliah> {
                   return Container(
                     width: double.infinity,
                     height: 69,
-                    margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                    margin: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 10),
                     decoration: BoxDecoration(
                       color: index % 2 == 0
                           ? Color(0x2000712D)
@@ -107,59 +108,50 @@ class _PilihMataKuliahState extends State<PilihMataKuliah> {
                         ),
                         Padding(
                           padding: const EdgeInsets.only(left: 10),
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 5),
-                            child: Container(
-                              child: Expanded(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      "TEKNOLOGI INFORMASI DAN \n KEWIRAUSAHAAN",
-                                      style: TextStyle(
-                                        fontFamily: 'Poppinsbold',
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 4,
-                                    ),
-                                    Text(
-                                      "DARING 6",
-                                      style: TextStyle(
-                                        fontSize: 12,
-                                        fontFamily: 'Poppinsmedium',
-                                      ),
-                                    )
-                                  ],
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "TEKNOLOGI INFORMASI DAN \nKEWIRAUSAHAAN",
+                                style: TextStyle(
+                                  fontFamily: 'Poppinsbold',
+                                  fontSize: 12,
                                 ),
                               ),
-                            ),
+                              const SizedBox(height: 4),
+                              Text(
+                                "DARING 6",
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontFamily: 'Poppinsmedium',
+                                ),
+                              ),
+                            ],
                           ),
                         ),
-                        Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.only(right: 5),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                Text(
-                                  "selasa",
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    fontFamily: 'Poppinsregular',
-                                  ),
+                        Spacer(), // Memberikan ruang fleksibel antar elemen
+                        Padding(
+                          padding: const EdgeInsets.only(right: 10),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Text(
+                                "Selasa",
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontFamily: 'Poppinsregular',
                                 ),
-                                Text(
-                                  "10:31-12:11",
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    fontFamily: 'Poppinsregular',
-                                  ),
+                              ),
+                              Text(
+                                "10:31-12:11",
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontFamily: 'Poppinsregular',
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                         ),
                         Checkbox(

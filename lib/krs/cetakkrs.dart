@@ -73,19 +73,20 @@ class Cetakkrs extends StatelessWidget {
                 ],
               ),
               SizedBox(
-                height: 21,
+                height: 15,
               ),
               Container(
                 width: double.infinity,
                 height: 69,
-                margin: EdgeInsets.symmetric(horizontal: 20),
+                margin: const EdgeInsets.symmetric(horizontal: 20),
                 decoration: BoxDecoration(
-                    color: Color(0x2000712D),
-                    borderRadius: BorderRadius.circular(5),
-                    border: Border.all(
-                      color: Color(0xff00712D),
-                      width: 2,
-                    )),
+                  color: Color(0x2000712D),
+                  borderRadius: BorderRadius.circular(5),
+                  border: Border.all(
+                    color: Color(0xff00712D),
+                    width: 2,
+                  ),
+                ),
                 child: Row(
                   children: [
                     Padding(
@@ -96,48 +97,37 @@ class Cetakkrs extends StatelessWidget {
                         color: Color(0xff00712D),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 5),
-                        child: Container(
-                          child: Expanded(
-                              child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "TEKNOLOGI INFORMASI",
-                                style: TextStyle(
-                                  fontFamily: 'Poppinsbold',
-                                  fontSize: 12,
-                                ),
-                              ),
-                              SizedBox(
-                                height: 9,
-                              ),
-                              Text(
-                                "DARING 6",
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  fontFamily: 'Poppinsmedium',
-                                ),
-                              )
-                            ],
-                          )),
+                    const SizedBox(width: 10),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "TEKNOLOGI INFORMASI",
+                          style: TextStyle(
+                            fontFamily: 'Poppinsbold',
+                            fontSize: 12,
+                          ),
                         ),
-                      ),
+                        const SizedBox(height: 9),
+                        Text(
+                          "DARING 6",
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontFamily: 'Poppinsmedium',
+                          ),
+                        ),
+                      ],
                     ),
-                    Expanded(
-                        child: Padding(
-                      padding: const EdgeInsets.only(
-                        right: 5,
-                      ),
+                    const Spacer(), // Menambahkan ruang fleksibel antara elemen
+                    Padding(
+                      padding: const EdgeInsets.only(right: 10),
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           Text(
-                            "selasa",
+                            "Selasa",
                             style: TextStyle(
                               fontSize: 10,
                               fontFamily: 'Poppinsregular',
@@ -152,7 +142,7 @@ class Cetakkrs extends StatelessWidget {
                           ),
                         ],
                       ),
-                    ))
+                    ),
                   ],
                 ),
               ),
@@ -162,14 +152,15 @@ class Cetakkrs extends StatelessWidget {
               Container(
                 width: double.infinity,
                 height: 69,
-                margin: EdgeInsets.symmetric(horizontal: 20),
+                margin: const EdgeInsets.symmetric(horizontal: 20),
                 decoration: BoxDecoration(
-                    color: Color(0x20FF9100),
-                    borderRadius: BorderRadius.circular(5),
-                    border: Border.all(
-                      color: Color(0xffFF9100),
-                      width: 2,
-                    )),
+                  color: Color(0x20FF9100),
+                  borderRadius: BorderRadius.circular(5),
+                  border: Border.all(
+                    color: Color(0xffFF9100),
+                    width: 2,
+                  ),
+                ),
                 child: Row(
                   children: [
                     Padding(
@@ -180,48 +171,37 @@ class Cetakkrs extends StatelessWidget {
                         color: Color(0xff00712D),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 5),
-                        child: Container(
-                          child: Expanded(
-                              child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "STATISTIKA DAN PROBABILITAS",
-                                style: TextStyle(
-                                  fontFamily: 'Poppinsbold',
-                                  fontSize: 12,
-                                ),
-                              ),
-                              SizedBox(
-                                height: 9,
-                              ),
-                              Text(
-                                "LAB 1 SISTEM INFORMASI",
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  fontFamily: 'Poppinsmedium',
-                                ),
-                              )
-                            ],
-                          )),
+                    const SizedBox(width: 10),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "TEKNOLOGI INFORMASI",
+                          style: TextStyle(
+                            fontFamily: 'Poppinsbold',
+                            fontSize: 12,
+                          ),
                         ),
-                      ),
+                        const SizedBox(height: 9),
+                        Text(
+                          "DARING 6",
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontFamily: 'Poppinsmedium',
+                          ),
+                        ),
+                      ],
                     ),
-                    Expanded(
-                        child: Padding(
-                      padding: const EdgeInsets.only(
-                        right: 5,
-                      ),
+                    const Spacer(), // Menambahkan ruang fleksibel antara elemen
+                    Padding(
+                      padding: const EdgeInsets.only(right: 10),
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           Text(
-                            "selasa",
+                            "Selasa",
                             style: TextStyle(
                               fontSize: 10,
                               fontFamily: 'Poppinsregular',
@@ -236,23 +216,25 @@ class Cetakkrs extends StatelessWidget {
                           ),
                         ],
                       ),
-                    ))
+                    ),
                   ],
                 ),
               ),
               SizedBox(
-                height: 21,
+                height: 15,
               ),
               Container(
                 width: double.infinity,
                 height: 69,
-                margin: EdgeInsets.symmetric(horizontal: 20),
+                margin: const EdgeInsets.symmetric(horizontal: 20),
                 decoration: BoxDecoration(
-                    color: Color(0x2000712D),
-                    border: Border.all(
-                      color: Color(0xff00712D),
-                      width: 2,
-                    )),
+                  color: Color(0x2000712D),
+                  borderRadius: BorderRadius.circular(5),
+                  border: Border.all(
+                    color: Color(0xff00712D),
+                    width: 2,
+                  ),
+                ),
                 child: Row(
                   children: [
                     Padding(
@@ -263,48 +245,37 @@ class Cetakkrs extends StatelessWidget {
                         color: Color(0xff00712D),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 5),
-                        child: Container(
-                          child: Expanded(
-                              child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "TEKNOLOGI INFORMASI",
-                                style: TextStyle(
-                                  fontFamily: 'Poppinsbold',
-                                  fontSize: 12,
-                                ),
-                              ),
-                              SizedBox(
-                                height: 9,
-                              ),
-                              Text(
-                                "DARING 6",
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  fontFamily: 'Poppinsmedium',
-                                ),
-                              )
-                            ],
-                          )),
+                    const SizedBox(width: 10),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "TEKNOLOGI INFORMASI",
+                          style: TextStyle(
+                            fontFamily: 'Poppinsbold',
+                            fontSize: 12,
+                          ),
                         ),
-                      ),
+                        const SizedBox(height: 9),
+                        Text(
+                          "DARING 6",
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontFamily: 'Poppinsmedium',
+                          ),
+                        ),
+                      ],
                     ),
-                    Expanded(
-                        child: Padding(
-                      padding: const EdgeInsets.only(
-                        right: 5,
-                      ),
+                    const Spacer(), // Menambahkan ruang fleksibel antara elemen
+                    Padding(
+                      padding: const EdgeInsets.only(right: 10),
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           Text(
-                            "selasa",
+                            "Selasa",
                             style: TextStyle(
                               fontSize: 10,
                               fontFamily: 'Poppinsregular',
@@ -319,23 +290,25 @@ class Cetakkrs extends StatelessWidget {
                           ),
                         ],
                       ),
-                    ))
+                    ),
                   ],
                 ),
               ),
               SizedBox(
-                height: 21,
+                height: 15,
               ),
               Container(
                 width: double.infinity,
                 height: 69,
-                margin: EdgeInsets.symmetric(horizontal: 20),
+                margin: const EdgeInsets.symmetric(horizontal: 20),
                 decoration: BoxDecoration(
-                    color: Color(0x20FF9100),
-                    border: Border.all(
-                      color: Color(0xffFF9100),
-                      width: 2,
-                    )),
+                  color: Color(0x20FF9100),
+                  borderRadius: BorderRadius.circular(5),
+                  border: Border.all(
+                    color: Color(0xffFF9100),
+                    width: 2,
+                  ),
+                ),
                 child: Row(
                   children: [
                     Padding(
@@ -346,48 +319,37 @@ class Cetakkrs extends StatelessWidget {
                         color: Color(0xff00712D),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 5),
-                        child: Container(
-                          child: Expanded(
-                              child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "TEKNOLOGI INFORMASI",
-                                style: TextStyle(
-                                  fontFamily: 'Poppinsbold',
-                                  fontSize: 12,
-                                ),
-                              ),
-                              SizedBox(
-                                height: 9,
-                              ),
-                              Text(
-                                "DARING 6",
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  fontFamily: 'Poppinsmedium',
-                                ),
-                              )
-                            ],
-                          )),
+                    const SizedBox(width: 10),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "TEKNOLOGI INFORMASI",
+                          style: TextStyle(
+                            fontFamily: 'Poppinsbold',
+                            fontSize: 12,
+                          ),
                         ),
-                      ),
+                        const SizedBox(height: 9),
+                        Text(
+                          "DARING 6",
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontFamily: 'Poppinsmedium',
+                          ),
+                        ),
+                      ],
                     ),
-                    Expanded(
-                        child: Padding(
-                      padding: const EdgeInsets.only(
-                        right: 5,
-                      ),
+                    const Spacer(), // Menambahkan ruang fleksibel antara elemen
+                    Padding(
+                      padding: const EdgeInsets.only(right: 10),
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           Text(
-                            "selasa",
+                            "Selasa",
                             style: TextStyle(
                               fontSize: 10,
                               fontFamily: 'Poppinsregular',
@@ -402,23 +364,25 @@ class Cetakkrs extends StatelessWidget {
                           ),
                         ],
                       ),
-                    ))
+                    ),
                   ],
                 ),
               ),
               SizedBox(
-                height: 21,
+                height: 15,
               ),
               Container(
                 width: double.infinity,
                 height: 69,
-                margin: EdgeInsets.symmetric(horizontal: 20),
+                margin: const EdgeInsets.symmetric(horizontal: 20),
                 decoration: BoxDecoration(
-                    color: Color(0x2000712D),
-                    border: Border.all(
-                      color: Color(0xff00712D),
-                      width: 2,
-                    )),
+                  color: Color(0x2000712D),
+                  borderRadius: BorderRadius.circular(5),
+                  border: Border.all(
+                    color: Color(0xff00712D),
+                    width: 2,
+                  ),
+                ),
                 child: Row(
                   children: [
                     Padding(
@@ -429,48 +393,37 @@ class Cetakkrs extends StatelessWidget {
                         color: Color(0xff00712D),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 5),
-                        child: Container(
-                          child: Expanded(
-                              child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "TEKNOLOGI INFORMASI",
-                                style: TextStyle(
-                                  fontFamily: 'Poppinsbold',
-                                  fontSize: 12,
-                                ),
-                              ),
-                              SizedBox(
-                                height: 9,
-                              ),
-                              Text(
-                                "DARING 6",
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  fontFamily: 'Poppinsmedium',
-                                ),
-                              )
-                            ],
-                          )),
+                    const SizedBox(width: 10),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "TEKNOLOGI INFORMASI",
+                          style: TextStyle(
+                            fontFamily: 'Poppinsbold',
+                            fontSize: 12,
+                          ),
                         ),
-                      ),
+                        const SizedBox(height: 9),
+                        Text(
+                          "DARING 6",
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontFamily: 'Poppinsmedium',
+                          ),
+                        ),
+                      ],
                     ),
-                    Expanded(
-                        child: Padding(
-                      padding: const EdgeInsets.only(
-                        right: 5,
-                      ),
+                    const Spacer(), // Menambahkan ruang fleksibel antara elemen
+                    Padding(
+                      padding: const EdgeInsets.only(right: 10),
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           Text(
-                            "selasa",
+                            "Selasa",
                             style: TextStyle(
                               fontSize: 10,
                               fontFamily: 'Poppinsregular',
@@ -485,23 +438,25 @@ class Cetakkrs extends StatelessWidget {
                           ),
                         ],
                       ),
-                    ))
+                    ),
                   ],
                 ),
               ),
               SizedBox(
-                height: 21,
+                height: 15,
               ),
               Container(
                 width: double.infinity,
                 height: 69,
-                margin: EdgeInsets.symmetric(horizontal: 20),
+                margin: const EdgeInsets.symmetric(horizontal: 20),
                 decoration: BoxDecoration(
-                    color: Color(0x20FF9100),
-                    border: Border.all(
-                      color: Color(0xffFF9100),
-                      width: 2,
-                    )),
+                  color: Color(0x20FF9100),
+                  borderRadius: BorderRadius.circular(5),
+                  border: Border.all(
+                    color: Color(0xffFF9100),
+                    width: 2,
+                  ),
+                ),
                 child: Row(
                   children: [
                     Padding(
@@ -512,48 +467,37 @@ class Cetakkrs extends StatelessWidget {
                         color: Color(0xff00712D),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 5),
-                        child: Container(
-                          child: Expanded(
-                              child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "TEKNOLOGI INFORMASI",
-                                style: TextStyle(
-                                  fontFamily: 'Poppinsbold',
-                                  fontSize: 12,
-                                ),
-                              ),
-                              SizedBox(
-                                height: 9,
-                              ),
-                              Text(
-                                "DARING 6",
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  fontFamily: 'Poppinsmedium',
-                                ),
-                              )
-                            ],
-                          )),
+                    const SizedBox(width: 10),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "TEKNOLOGI INFORMASI",
+                          style: TextStyle(
+                            fontFamily: 'Poppinsbold',
+                            fontSize: 12,
+                          ),
                         ),
-                      ),
+                        const SizedBox(height: 9),
+                        Text(
+                          "DARING 6",
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontFamily: 'Poppinsmedium',
+                          ),
+                        ),
+                      ],
                     ),
-                    Expanded(
-                        child: Padding(
-                      padding: const EdgeInsets.only(
-                        right: 5,
-                      ),
+                    const Spacer(), // Menambahkan ruang fleksibel antara elemen
+                    Padding(
+                      padding: const EdgeInsets.only(right: 10),
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           Text(
-                            "selasa",
+                            "Selasa",
                             style: TextStyle(
                               fontSize: 10,
                               fontFamily: 'Poppinsregular',
@@ -568,23 +512,25 @@ class Cetakkrs extends StatelessWidget {
                           ),
                         ],
                       ),
-                    ))
+                    ),
                   ],
                 ),
               ),
               SizedBox(
-                height: 21,
+                height: 15,
               ),
               Container(
-                height: 69,
                 width: double.infinity,
-                margin: EdgeInsets.symmetric(horizontal: 20),
+                height: 69,
+                margin: const EdgeInsets.symmetric(horizontal: 20),
                 decoration: BoxDecoration(
-                    color: Color(0x2000712D),
-                    border: Border.all(
-                      color: Color(0xff00712D),
-                      width: 2,
-                    )),
+                  color: Color(0x2000712D),
+                  borderRadius: BorderRadius.circular(5),
+                  border: Border.all(
+                    color: Color(0xff00712D),
+                    width: 2,
+                  ),
+                ),
                 child: Row(
                   children: [
                     Padding(
@@ -595,48 +541,37 @@ class Cetakkrs extends StatelessWidget {
                         color: Color(0xff00712D),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 5),
-                        child: Container(
-                          child: Expanded(
-                              child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "TEKNOLOGI INFORMASI",
-                                style: TextStyle(
-                                  fontFamily: 'Poppinsbold',
-                                  fontSize: 12,
-                                ),
-                              ),
-                              SizedBox(
-                                height: 9,
-                              ),
-                              Text(
-                                "DARING 6",
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  fontFamily: 'Poppinsmedium',
-                                ),
-                              )
-                            ],
-                          )),
+                    const SizedBox(width: 10),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "TEKNOLOGI INFORMASI",
+                          style: TextStyle(
+                            fontFamily: 'Poppinsbold',
+                            fontSize: 12,
+                          ),
                         ),
-                      ),
+                        const SizedBox(height: 9),
+                        Text(
+                          "DARING 6",
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontFamily: 'Poppinsmedium',
+                          ),
+                        ),
+                      ],
                     ),
-                    Expanded(
-                        child: Padding(
-                      padding: const EdgeInsets.only(
-                        right: 5,
-                      ),
+                    const Spacer(), // Menambahkan ruang fleksibel antara elemen
+                    Padding(
+                      padding: const EdgeInsets.only(right: 10),
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           Text(
-                            "selasa",
+                            "Selasa",
                             style: TextStyle(
                               fontSize: 10,
                               fontFamily: 'Poppinsregular',
@@ -651,12 +586,83 @@ class Cetakkrs extends StatelessWidget {
                           ),
                         ],
                       ),
-                    ))
+                    ),
                   ],
                 ),
               ),
               SizedBox(
-                height: 12,
+                height: 15,
+              ),
+              Container(
+                width: double.infinity,
+                height: 69,
+                margin: const EdgeInsets.symmetric(horizontal: 20),
+                decoration: BoxDecoration(
+                  color: Color(0x20FF9100),
+                  borderRadius: BorderRadius.circular(5),
+                  border: Border.all(
+                    color: Color(0xffFF9100),
+                    width: 2,
+                  ),
+                ),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: Container(
+                        width: 2,
+                        height: 45,
+                        color: Color(0xff00712D),
+                      ),
+                    ),
+                    const SizedBox(width: 10),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "TEKNOLOGI INFORMASI",
+                          style: TextStyle(
+                            fontFamily: 'Poppinsbold',
+                            fontSize: 12,
+                          ),
+                        ),
+                        const SizedBox(height: 9),
+                        Text(
+                          "DARING 6",
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontFamily: 'Poppinsmedium',
+                          ),
+                        ),
+                      ],
+                    ),
+                    const Spacer(), // Menambahkan ruang fleksibel antara elemen
+                    Padding(
+                      padding: const EdgeInsets.only(right: 10),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text(
+                            "Selasa",
+                            style: TextStyle(
+                              fontSize: 10,
+                              fontFamily: 'Poppinsregular',
+                            ),
+                          ),
+                          Text(
+                            "10:31-12:11",
+                            style: TextStyle(
+                              fontSize: 10,
+                              fontFamily: 'Poppinsregular',
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
