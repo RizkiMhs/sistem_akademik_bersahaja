@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/bahan%20kuliah/bahankuliah.dart';
 import 'package:flutter_application_1/info/pesan.dart';
@@ -113,10 +114,10 @@ class _HomepageState extends State<Homepage> {
                 color: Color(0xFFFF9100),
                 borderRadius: BorderRadius.all(Radius.circular(10)),
               ),
-              child: const Row(
+              child: Row(
                 // mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.only(left: 13),
                     child: Image(
                       image: AssetImage('asset/image/profile.png'),
@@ -125,11 +126,11 @@ class _HomepageState extends State<Homepage> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 10, top: 13),
+                    padding: const EdgeInsets.only(left: 10, top: 13),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
+                        const Text(
                           'Selamat Datang',
                           style: TextStyle(
                             fontFamily: 'PoppinsRegular',
@@ -138,14 +139,24 @@ class _HomepageState extends State<Homepage> {
                           ),
                         ),
                         Text(
-                          'Pulan Bin Fulan',
-                          style: TextStyle(
+                          'Rizki',
+                          style: const TextStyle(
                             fontFamily: 'Poppinsmedium',
                             fontSize: 16,
                             color: Color(0xFFFFFFFF),
                           ),
                         ),
-                        Text(
+                        // Text(
+                        //   FirebaseAuth.instance.currentUser?.email
+                        //           ?.split('@')[0] ??
+                        //       'Tidak ada email',
+                        //   style: const TextStyle(
+                        //     fontFamily: 'Poppinsmedium',
+                        //     fontSize: 16,
+                        //     color: Color(0xFFFFFFFF),
+                        //   ),
+                        // ),
+                        const Text(
                           '230199080',
                           style: TextStyle(
                             fontFamily: 'PoppinsRegular',

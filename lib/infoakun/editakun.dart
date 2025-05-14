@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/infoakun/datadiri.dart';
 import 'package:flutter_application_1/utils/color.dart';
@@ -10,6 +12,43 @@ class EditAkun extends StatefulWidget {
 }
 
 class _EditAkunState extends State<EditAkun> {
+  final _textController = TextEditingController();
+
+  void _changeEmail() async {
+    final FirebaseAuth _auth = FirebaseAuth.instance;
+    User? user = _auth.currentUser;
+
+    if (user != null) {
+      try {
+        // Lakukan otentikasi ulang dengan kredensial pengguna
+        final String email = user.email!;
+        final String password =
+            '123456'; // Anda bisa meminta pengguna untuk memasukkan password
+
+        // Membuat kredensial pengguna
+        AuthCredential credential =
+            EmailAuthProvider.credential(email: email, password: password);
+
+        // Lakukan re-authentication
+        await user.reauthenticateWithCredential(credential);
+        print("User re-authenticated");
+
+        // Sekarang Anda bisa mengupdate email setelah otentikasi ulang
+        await user.verifyBeforeUpdateEmail(_textController.text);
+        print("Verification email sent to ${_textController.text}");
+        showDialog(
+            context: context,
+            builder: (BuildContext) {
+              return Alert();
+            });
+      } on FirebaseAuthException catch (e) {
+        print("Error during re-authentication or email update: ${e.message}");
+      }
+    } else {
+      print("User is not logged in");
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -128,6 +167,60 @@ class _EditAkunState extends State<EditAkun> {
                       alignment: Alignment.centerLeft,
                       child: Padding(
                           padding: const EdgeInsets.only(left: 20),
+                          child: Text("Email",
+                              style: TextStyle(
+                                fontFamily: 'Poppinsmedium',
+                                fontSize: 16,
+                              ))),
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Container(
+                      width: double.infinity,
+                      height: 45,
+                      margin: const EdgeInsets.symmetric(horizontal: 20),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.black.withOpacity(0.3),
+                                spreadRadius: 0,
+                                blurRadius: 4,
+                                offset: Offset(2, 2))
+                          ],
+                          color: whitecolor),
+                      child: Align(
+                        alignment: Alignment.bottomLeft,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 10, horizontal: 30),
+                          child: TextField(
+                              controller: _textController,
+                              style: TextStyle(
+                                fontFamily: 'Poppinssemibold',
+                                fontSize: 16,
+                              ),
+                              decoration: InputDecoration(
+                                hintText:
+                                    FirebaseAuth.instance.currentUser?.email ??
+                                        'Tidak ada email',
+                                hintStyle: TextStyle(
+                                  fontFamily: 'Poppinssemibold',
+                                  fontSize: 16,
+                                ),
+                                border: InputBorder.none,
+                              )),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Padding(
+                          padding: const EdgeInsets.only(left: 20),
                           child: Text("Nama",
                               style: TextStyle(
                                 fontFamily: 'Poppinsmedium',
@@ -156,7 +249,7 @@ class _EditAkunState extends State<EditAkun> {
                         child: Padding(
                           padding: const EdgeInsets.symmetric(
                               vertical: 10, horizontal: 30),
-                          child: Text("Rizki Aulia Nanda",
+                          child: Text("TEs",
                               style: TextStyle(
                                 fontFamily: 'Poppinssemibold',
                                 fontSize: 16,
@@ -176,9 +269,6 @@ class _EditAkunState extends State<EditAkun> {
                                 fontFamily: 'Poppinsmedium',
                                 fontSize: 16,
                               ))),
-                    ),
-                    SizedBox(
-                      height: 5,
                     ),
                     Container(
                       width: double.infinity,
@@ -437,6 +527,7 @@ class _EditAkunState extends State<EditAkun> {
           child: GestureDetector(
             onTap: () {
               // Aksi untuk menyimpan data
+              // _changeEmail();
               showDialog(
                   context: context,
                   builder: (BuildContext) {

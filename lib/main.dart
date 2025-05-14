@@ -48,7 +48,7 @@ class MyApp extends StatelessWidget {
           if (snapshot.hasData) {
             return const Homepage(); // Pengguna sudah login.
           }
-          return SplashScreen(); // Arahkan ke halaman login.
+          return LoginTwo(); // Arahkan ke halaman login.
         },
       ),
     );
