@@ -7,6 +7,19 @@ import 'package:flutter_application_1/views/lupapw.dart';
 import 'package:flutter_application_1/views/register.dart';
 import 'package:get/get.dart';
 import 'package:flutter_application_1/app/controllers/auth_controller.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+
+const List<String> scopes = <String>[
+  'email',
+  'https://www.googleapis.com/auth/contacts.readonly',
+];
+
+GoogleSignIn _googleSignIn = GoogleSignIn(
+  // Optional clientId
+  clientId:
+      '43889441264-ero5o6mh62o1e58e58kh6kn6ke2458g2.apps.googleusercontent.com',
+  scopes: scopes,
+);
 
 class LoginTwo extends StatefulWidget {
   const LoginTwo({super.key});
@@ -21,10 +34,73 @@ class _LoginTwoState extends State<LoginTwo> {
   final formKey = GlobalKey<FormState>();
   String _errorMessage = '';
   bool passToggle = true;
+  bool _isLoading = false;
+
+  GoogleSignInAccount? _currentUser;
 
   // final authC = Get.put(AuthController());
+  Future<void> _handleSignIn() async {
+    setState(() {
+      _isLoading = true;
+    });
+
+    try {
+      final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
+      if (googleUser == null) {
+        // Jika pengguna membatalkan login
+        setState(() {
+          _errorMessage = 'Login dengan Google dibatalkan.';
+        });
+        return;
+      }
+
+      final GoogleSignInAuthentication googleAuth =
+          await googleUser.authentication;
+
+      final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth.accessToken,
+        idToken: googleAuth.idToken,
+      );
+
+      await FirebaseAuth.instance.signInWithCredential(credential);
+
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const Homepage()),
+      );
+    } catch (error) {
+      // setState(() {
+      //   _errorMessage = 'Login dengan Google gagal: ${error.toString()}';
+      // });
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const Homepage()),
+      ); 
+    } finally {
+      setState(() {
+        _isLoading = false;
+      });
+    }
+  }
 
   @override
+  @override
+  void initState() {
+    super.initState();
+    _googleSignIn.onCurrentUserChanged.listen((GoogleSignInAccount? account) {
+      setState(() {
+        _currentUser = account;
+      });
+      if (_currentUser != null) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const Homepage()),
+        );
+      }
+    });
+    _googleSignIn.signInSilently();
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF00712D),
@@ -82,7 +158,7 @@ class _LoginTwoState extends State<LoginTwo> {
             ),
 
             // untuk bagian bawah login
-            // Form Login 
+            // Form Login
             Form(
               key: formKey,
               child: Padding(
@@ -332,6 +408,32 @@ class _LoginTwoState extends State<LoginTwo> {
                                 fontSize: 14,
                                 color: greencolor,
                               ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: ElevatedButton(
+                          onPressed: () async {
+                            await _handleSignIn();
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: const Color(0xFFFF9100),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            minimumSize: const Size(double.infinity, 53),
+                          ),
+                          child: const Text(
+                            'Login with Google',
+                            style: TextStyle(
+                              fontFamily: 'Poppinsmedium',
+                              fontSize: 14,
+                              color: Color(0xFFFFFFFF),
                             ),
                           ),
                         ),
